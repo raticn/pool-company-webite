@@ -30,7 +30,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255,255,255, 0.5);
+    background-color: rgba(255,255,255, 0.8);
     z-index: 10;
 }
 .logo{
@@ -39,14 +39,18 @@ export default {
 }
 .linkovi{
     display: flex;
-    
+    justify-content: center;
 }
 .link{
     list-style: none;
-    margin:1em 2em 1em 0;
+    padding:1em ;
     color: rgb(46, 94, 154);
     font-size: 1.2em;
-    font-weight: 900;
+    /* font-weight: 900; */
     font-family: Comfortaa;
+    cursor: pointer;
+}
+.link:hover{
+    border-bottom: 2px solid rgb(46, 94, 154);
 }
 </style>

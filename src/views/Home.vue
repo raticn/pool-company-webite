@@ -11,23 +11,21 @@ export default {
     },
     data(){
         return{
-           heroCounter:0, 
-           currentHero: 1,
-           totalHeroes: 4,
+            currentHero: 1,
         }
     },
-    computed:{
-        // carousel(){
-        //     this.heroCounter++;
-        //     if (this.heroCounter==5) 
-        // },
+    methods:{
     },
     mounted() {
-        
     setInterval(() => {
-      this.currentHero = this.currentHero === this.totalHeroes ? 1 : this.currentHero + 1
-    }, 5000),
-    document.querySelector('.heroImg').classList.add('slide-enter-active');
+    if(this.currentHero > 3) {
+        this.currentHero = 1
+    }
+    else{
+        this.currentHero++
+    }
+    }, 6000)
+    
     },
     created() {
         library.add(faCheck)
@@ -38,18 +36,10 @@ export default {
 <template>
     <div class="home">
         <Nav/>
-       
         <div class="hero">
-            <img class="heroImg" :key="currentHero" :src="`../assets/hero${currentHero}.jpg`" alt="Hero Image">
-        <!-- <transition name="slide " mode="out-in">
-           
-            
-        </transition> -->
+            <img class="heroImg" :key="currentHero" :src="`../assets/hero${this.currentHero}.jpg`" alt="Hero Image">
+            <p class="heroText">Izgrađujemo bazeno po vašoj želji</p>
         </div>
-        <!-- <div class="hero">
-            <img class="heroImg" src="../assets/hero1.jpg" alt="">
-            <p class="heroText">Izgradnja bazena po vašoj želji</p>
-        </div> -->
         <div class="aboutUs">
             <p class="aboutHeader">
                 Žašto odabrati nas?</p>
@@ -79,11 +69,13 @@ export default {
 .heroImg{
     width: 100%;
     position: relative;
+    animation: fade-in 1.5s ease-in-out;
 }
 .heroText{
     position: absolute;
-    top: 45%;
-    left: 35%;
+    top: 25%;
+    left: 10%;
+    width: 6em;
     color: #fff;
     font-size: 4em;
     font-family: Quicksand;
@@ -98,41 +90,15 @@ export default {
     margin: 0.5em 0;
     font-family: Comfortaa;
 }
-.hero-slider {
-  position: relative;
-}
-
-.slide-enter-active {
-  animation: fade-in 1.5s ease-in-out;
-  
-}
-.slide-leave-active {
-  animation: fade-out 1.5s ease-in;
-}
 
 @keyframes fade-in {
-  0% {
-    opacity: 0;
+    0% {
+    opacity: 0.7;
     
-  }
-    
-  100% {
+    }
+    100%{
     opacity: 1;
-    
-  }
+    }
 }
-
-@keyframes fade-out {
-  0% {
-    opacity: 0;
-    
-  }
-  
-  100% {
-    opacity: 1;
-    
-  }
-}
-
 
 </style>
