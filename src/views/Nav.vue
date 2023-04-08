@@ -30,7 +30,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255,255,255, 0.9);
+    background-color: rgba(255,255,255, 0.5);
     z-index: 10;
 }
 .logo{
