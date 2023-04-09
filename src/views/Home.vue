@@ -38,7 +38,7 @@ export default {
         <Nav/>
         <div class="hero">
             <img class="heroImg" :key="currentHero" :src="`../assets/hero${this.currentHero}.jpg`" alt="Hero Image">
-            <p class="heroText">Izgrađujemo bazeno po vašoj želji</p>
+            <p class="heroText">Gradimo bazene po vašoj želji</p>
         </div>
         <div class="aboutUs">
             <FontAwesomeIcon class="checkListIcon" icon="fa-solid fa-clipboard-check"></FontAwesomeIcon>

@@ -46,7 +46,7 @@ export default {
     padding:1em ;
     color: rgb(46, 94, 154);
     font-size: 1.2em;
-    /* font-weight: 900; */
+    font-weight: 900;
     font-family: Comfortaa;
     cursor: pointer;
 }
