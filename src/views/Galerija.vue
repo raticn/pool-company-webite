@@ -12,6 +12,6 @@ export default {
 <style>
 .proba{
     background-color: aliceblue;
-    font-size:2em;
+    font-size:10em;
 }
 </style>
