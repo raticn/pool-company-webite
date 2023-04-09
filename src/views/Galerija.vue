@@ -1,13 +1,10 @@
 <script>
-
-export default {
-
-}
+ 
 </script>
 
 <template>
-    <div class="proba">Proba1</div>
-</template>
+ 
+  </template>
 
 <style>
 .proba{

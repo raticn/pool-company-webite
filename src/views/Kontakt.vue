@@ -1,10 +1,10 @@
 <script>
 import Nav from './Nav.vue';
-
+import Form from '../components/Form.vue';
 export default {
     components: {
         Nav,
-        
+        Form,
     },
     data(){
         return{
@@ -28,6 +28,9 @@ export default {
             <p>RADNO VREME : ponedeljak - petak 08:00-17:00</p>
         </div>
     </div>
+    <div class="form">
+        <Form/>
+    </div>
 
 </template>
 
@@ -44,9 +47,14 @@ export default {
     font-size: 1.2em;
     font-weight: 900;
     font-family: Comfortaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .map_holder{
     margin: 20 px;
     padding: 1em;
+    
+    justify-content: center;
 }
 </style>
