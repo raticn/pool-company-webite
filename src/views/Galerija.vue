@@ -10,5 +10,7 @@ export default {
 </template>
 
 <style>
-
+.proba{
+    background-color: aliceblue;
+}
 </style>
