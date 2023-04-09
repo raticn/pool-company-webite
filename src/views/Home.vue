@@ -1,6 +1,6 @@
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faClipboardCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Nav from './Nav.vue'
 
@@ -28,7 +28,7 @@ export default {
     
     },
     created() {
-        library.add(faCheck)
+        library.add(faCheck, faClipboardCheck)
     }
 }
 </script>
@@ -41,20 +41,23 @@ export default {
             <p class="heroText">Izgrađujemo bazeno po vašoj želji</p>
         </div>
         <div class="aboutUs">
-            <p class="aboutHeader">
+            <FontAwesomeIcon class="checkListIcon" icon="fa-solid fa-clipboard-check"></FontAwesomeIcon>
+            <div class="checklist">
+                <p class="aboutHeader">
                 Žašto odabrati nas?</p>
-            <p class="aboutText">
-                <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>300+ izgrađenih bazena i isto toliko zadovoljnih klijenata</p>
-            <p class="aboutText">
-                <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>25 godina iskustva</p>
-            <p class="aboutText">
-                <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Prilagođavanje željama klijenta</p>
-            <p class="aboutText">
-                <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Licencirani proektanti</p>
-            <p class="aboutText">
-                <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Višegodišnja profesionalna tehnička podrška</p>
-            <p class="aboutText">
-                <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Najsavremenija AstralPool oprema</p>
+                <p class="aboutText">
+                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>300+ izgrađenih bazena i isto toliko zadovoljnih klijenata</p>
+                <p class="aboutText">
+                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>25 godina iskustva</p>
+                <p class="aboutText">
+                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Prilagođavanje željama klijenta</p>
+                <p class="aboutText">
+                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Licencirani proektanti</p>
+                <p class="aboutText">
+                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Višegodišnja profesionalna tehnička podrška</p>
+                <p class="aboutText">
+                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Najsavremenija AstralPool oprema</p>
+            </div>
         </div>
 
     </div>
@@ -69,7 +72,7 @@ export default {
 .heroImg{
     width: 100%;
     position: relative;
-    animation: fade-in 1.5s ease-in-out;
+    animation: fade-in 2.5s ease-in-out;
 }
 .heroText{
     position: absolute;
@@ -90,10 +93,20 @@ export default {
     margin: 0.5em 0;
     font-family: Comfortaa;
 }
+.aboutUs{
+    display: flex;
+    justify-content: space-around;
+    padding: 2em 0;
+}
+.checkListIcon{
+    font-size: 15em;
+}
+
+
 
 @keyframes fade-in {
     0% {
-    opacity: 0.7;
+    opacity: 0.85;
     
     }
     100%{
