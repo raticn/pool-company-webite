@@ -81,7 +81,31 @@ export default {
                 </p>
             </div>
         </div>
+        <div class="action">
 
+            <div id="projektovanje_div" class="section">
+                <p class="action_header">Projektovanje i izgradnja</p>
+                <p class="action_text">Licencirani projektanti će se potruditi da prilagode projekat vašeg bazena svim Vašim željama...</p>
+                <button class="action_btn">Saznaj više</button>
+                <div class="plavo"></div>
+            </div>
+
+            <div id="renoviranje_div"  class="section">
+                <p class="action_header">Renoviranje i održavanje</p>
+                <p class="action_text">Ukoliko je vašem bazenu neophodno renoviranje ili želite da nas angažujete za poslove održavanja rado ćemo preuzeti te obaveze...</p>
+                <button class="action_btn">Saznaj više</button>
+                <div class="plavo"></div>
+
+            </div>
+
+            <div id="oprema_div" class="section">
+                <p class="action_header">Oprema i hemijska sredstva</p>
+                <p class="action_text">Bilo da su Vam potrebna hemijska sredstva za održavanje bazena ili bilo šta od bazenske opreme treba zameniti mi to imamo u ponudi...</p>
+                <button class="action_btn">Saznaj više</button>
+                <div class="plavo"></div>
+
+            </div>
+        </div>
     </div>
 </template>
 
@@ -131,8 +155,65 @@ export default {
 .checkListIcon {
     font-size: 15em;
 }
+.action{
+    display: flex;
+    width: 100vw;
 
+}
+.section{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33%;
+    text-align: center;
+    justify-content: center;
+    overflow-y: hidden;
+    height: 40em;
 
+}
+#projektovanje_div{
+    position: relative;
+    background-image: url('../assets/projektovanje.jpg');
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+}
+
+#renoviranje_div{
+    position: relative;
+    background-image: url('../assets/cleaning.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#oprema_div{
+    position: relative;
+    background-image: url('../assets/MMD-Galery22.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.plavo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(62, 62, 239);
+    bottom: -100%;
+    opacity: 0.5;
+    z-index: 2;
+}
+#projektovanje_div:hover .plavo, #renoviranje_div:hover .plavo, #oprema_div:hover .plavo{
+    bottom: 0%;
+    transition: all 0.5s ease-in-out;
+}
+.action_btn{
+    display: none;
+    width: 8em;
+    margin-top: 0.5em;
+    align-self: center;
+}
+#projektovanje_div:hover .action_btn,#projektovanje_div:hover .action_text, #renoviranje_div:hover .action_btn, #oprema_div:hover .action_btn {
+    z-index: 10;  
+    position: relative;
+    display: block;  
+}
 
 @keyframes fade-in {
     0% {
