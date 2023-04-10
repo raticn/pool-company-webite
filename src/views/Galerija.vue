@@ -1,17 +1,14 @@
 <script>
-
-export default {
-
-}
+ 
 </script>
 
 <template>
-    <div class="proba">Proba1</div>
-</template>
+ 
+  </template>
 
 <style>
 .proba{
     background-color: aliceblue;
-    font-size: 10em;
+    font-size:5em;
 }
 </style>

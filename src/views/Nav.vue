@@ -14,7 +14,8 @@ export default {
                 <li class="link">Galerija</li>
                 <li class="link">Bazenska oprema</li>
                 <li class="link">Novosti</li>
-                <li class="link">Kontakt</li>
+                <li class="link"><router-link to="/kontakt">Kontakt</router-link></li>
+
             </ul>
         </div>
     </nav>
