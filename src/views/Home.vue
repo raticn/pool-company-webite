@@ -1,6 +1,6 @@
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCheck, faClipboardCheck } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faClipboardCheck, faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Nav from './Nav.vue'
 
@@ -45,7 +45,7 @@ export default {
         }, 6000)
     },
     created() {
-        library.add(faCheck, faClipboardCheck)
+        library.add(faCheck, faClipboardCheck,faMagnifyingGlassPlus)
     }
 }
 </script>
@@ -71,6 +71,7 @@ export default {
                 <p class="heroText">Gradimo bazene po vašoj želji</p>
             </div>
         </div>
+    </div>
         <div class="aboutUs">
             <FontAwesomeIcon class="checkListIcon" icon="fa-solid fa-clipboard-check"></FontAwesomeIcon>
             <div class="checklist">
@@ -122,7 +123,43 @@ export default {
 
             </div>
         </div>
-    </div>
+        <div class="portfolio_wrapper">
+            <p class="portfolio_header">Galerija</p>
+            <p class="portfolio_text">MMD Bazeni, Saune, Fontane </p>
+            <div class="portfolio">
+                <div class="porfolio_section">
+                    <img class="portfolio_img" src="../assets/MMD-Galery04.jpg" alt="Privatni">
+                    <div class="portfolio_hover">
+                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                        <p>Privatni bazeni</p>
+                    </div>    
+                </div>
+                <div class="porfolio_section">
+                    <img class="portfolio_img" src="../assets/MMD-Galery17.jpg" alt="Javni bazeni">
+                    <div class="portfolio_hover">
+                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                        <p>Javni bazeni</p>
+                    </div>
+                </div>
+                <div class="porfolio_section">
+                    <img class="portfolio_img" src="../assets/protfolio-fontana.jpg" alt="Fontane">
+                    <div class="portfolio_hover">
+                                              
+                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                        <p>Fontane</p>
+                        
+                    </div>
+                </div>
+                <div class="porfolio_section">
+                    <img class="portfolio_img" src="../assets/sauna.jpg" alt="Saune">
+                    <div class="portfolio_hover">
+                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                        <p>Saune</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
 </template>
 
 <style>
@@ -270,6 +307,35 @@ export default {
 }
 #projektovanje_div:hover .action_btn, #renoviranje_div:hover .action_btn, #oprema_div:hover .action_btn {
     display: block;  
+}
+.portfolio_hover{
+    display: none;
+}
+.portfolio{
+    display: flex;
+    width: 80vw;
+    margin: 0 auto 1.5em;
+    justify-content: space-between;
+}
+.porfolio_section{
+    flex-basis: 22%;
+}
+
+.portfolio_img{
+    width: 100%;
+}
+.portfolio_header{
+    text-align: center;
+    margin: 1.5em 0 0.5em;
+    font-size:3em ;
+    font-family: Quicksand;
+    color: rgb(46, 94, 154);
+}
+.portfolio_text{
+    margin-bottom: 1em;
+    text-align: center;
+    font-size:1.5em ;
+    font-family: Comfortaa;
 }
 
 @keyframes fade-in {
