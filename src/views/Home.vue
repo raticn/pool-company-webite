@@ -88,7 +88,7 @@ export default {
                     <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Prilagođavanje željama klijenta
                 </p>
                 <p class="aboutText">
-                    <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Licencirani proektanti
+                    <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Licencirani projektanti
                 </p>
                 <p class="aboutText">
                     <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Višegodišnja profesionalna tehnička podrška
@@ -264,7 +264,7 @@ export default {
     position: absolute;
     background-color: rgb(46, 94, 154);
     bottom: -100%;
-    opacity: 0.5;
+    opacity: 0.8;
     z-index: 2;
 }
 .action_header{
