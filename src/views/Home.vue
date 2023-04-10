@@ -127,33 +127,32 @@ export default {
             <p class="portfolio_header">Galerija</p>
             <p class="portfolio_text">MMD Bazeni, Saune, Fontane </p>
             <div class="portfolio">
-                <div class="porfolio_section">
-                    <img class="portfolio_img" src="../assets/MMD-Galery04.jpg" alt="Privatni">
+                <div class="porfolio_section section1">
+                    <img class="portfolio_img" src="../assets/privatniBazeni.jpg" alt="Privatni">
                     <div class="portfolio_hover">
-                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                        <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
                         <p>Privatni bazeni</p>
                     </div>    
                 </div>
-                <div class="porfolio_section">
-                    <img class="portfolio_img" src="../assets/MMD-Galery17.jpg" alt="Javni bazeni">
+                <div class="porfolio_section section2">
+                    <img class="portfolio_img" src="../assets/javniBazeni.jpg" alt="Javni bazeni">
                     <div class="portfolio_hover">
-                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                        <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
                         <p>Javni bazeni</p>
                     </div>
                 </div>
-                <div class="porfolio_section">
-                    <img class="portfolio_img" src="../assets/protfolio-fontana.jpg" alt="Fontane">
+                <div class="porfolio_section section3">
+                    <img class="portfolio_img" src="../assets/fontana.jpg" alt="Fontane">
                     <div class="portfolio_hover">
-                                              
-                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                        <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
                         <p>Fontane</p>
                         
                     </div>
                 </div>
-                <div class="porfolio_section">
+                <div class="porfolio_section section4">
                     <img class="portfolio_img" src="../assets/sauna.jpg" alt="Saune">
                     <div class="portfolio_hover">
-                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                        <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
                         <p>Saune</p>
                     </div>
                 </div>
@@ -163,6 +162,9 @@ export default {
 </template>
 
 <style>
+*{
+    overflow-x: hidden;
+}
 .home {
     width: 100%;
     margin: 0 auto;
@@ -308,17 +310,21 @@ export default {
 #projektovanje_div:hover .action_btn, #renoviranje_div:hover .action_btn, #oprema_div:hover .action_btn {
     display: block;  
 }
-.portfolio_hover{
-    display: none;
+
+.portfolio_wrapper{
+    overflow: hidden;
 }
 .portfolio{
     display: flex;
-    width: 80vw;
-    margin: 0 auto 1.5em;
+    width: 90vw;
+    margin: 0 auto;
+    padding-bottom: 80px;
     justify-content: space-between;
 }
 .porfolio_section{
     flex-basis: 22%;
+    overflow-y: hidden;
+    position: relative;
 }
 
 .portfolio_img{
@@ -337,7 +343,39 @@ export default {
     font-size:1.5em ;
     font-family: Comfortaa;
 }
-
+.portfolio_hover{
+    background-color: rgb(46, 94, 154);
+    opacity: 0;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    top: 30%;
+    left: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: Comfortaa;
+}
+.searchIcon{
+    font-size: 2em;
+    margin-bottom: 0.2em;
+}
+.portfolio_hover p{
+    font-weight: 900;
+}
+.section1:hover .portfolio_hover, .section2:hover .portfolio_hover, .section3:hover .portfolio_hover, .section4:hover .portfolio_hover{
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    transition: all 0.4s ease-in;
+}
 @keyframes fade-in {
     0% {
         opacity: 0.85;
