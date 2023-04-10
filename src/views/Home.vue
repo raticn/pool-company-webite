@@ -60,15 +60,15 @@ export default {
             </div>
             <div class="hero">
                 <img class="heroImg" src="../assets/hero2.jpg" alt="Hero Image"/>
-                <p class="heroText">Gradimo bazene po vašoj želji</p>
+                <p class="heroText">Uskladjujemo se sa vašim potrebama</p>
             </div>
             <div class="hero">
                 <img class="heroImg" src="../assets/hero3.jpg" alt="Hero Image"/>
-                <p class="heroText">Gradimo bazene po vašoj želji</p>
+                <p class="heroText">Mnogo zadovoljnih klijenata</p>
             </div>
             <div class="hero">
                 <img class="heroImg" src="../assets/hero4.jpg" alt="Hero Image"/>
-                <p class="heroText">Gradimo bazene po vašoj želji</p>
+                <p class="heroText">Ostvarite vaše želje!</p>
             </div>
         </div>
     </div>
