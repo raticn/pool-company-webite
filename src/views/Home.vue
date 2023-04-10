@@ -11,32 +11,38 @@ export default {
     },
     data() {
         return {
-            currentHero: 1,
+            currentHero: 0,
+            heroImages: null,
         }
     },
     methods: {
-        imageLoaded() {
-            // Image is loaded, show it
-            this.showImage = true;
-        },
-        loadImage() {
-            // Start loading image
-            this.showImage = false;
-            const img = new Image();
-            img.src = this.imageUrl;
+        carousel() {
+            let counter = this.currentHero
+            this.heroImages.forEach(function(hero){
+            hero.style.transform = `translateX(-${counter * 100}%)`
+            hero.style.transition = "all 1s ease-in-out"
+    })
         }
     },
     mounted() {
-        this.loadImage();
+        this.heroImages = document.querySelectorAll(".hero")
+        this.heroImages.forEach(function(hero, index){
+        hero.style.left = `${index * 100}%`
+        })
+
         setInterval(() => {
+            this.currentHero++
             if (this.currentHero > 3) {
-                this.currentHero = 1
+                this.currentHero = 0
+                console.log('if',this.currentHero);
+                this.carousel()
             }
             else {
-                this.currentHero++
+                // this.currentHero++
+                console.log('else',this.currentHero);
+                this.carousel()
             }
         }, 6000)
-
     },
     created() {
         library.add(faCheck, faClipboardCheck)
@@ -47,37 +53,47 @@ export default {
 <template>
     <div class="home">
         <Nav />
-        <div class="hero">
-            <div class="heroPlaceholder" v-show="!showImage">
-                <div class="heroImg"></div>
+        <div class="heroWrapper">
+            <div class="hero">
+                <img class="heroImg" src="../assets/hero1.jpg" alt="Hero Image"/>
+                <p class="heroText">Gradimo bazene po vašoj želji</p>
             </div>
-            <img class="heroImg" :key="currentHero" :src="`../assets/hero${this.currentHero}.jpg`" alt="Hero Image"
-                @load="imageLoaded" />
-            <p class="heroText">Gradimo bazene po vašoj želji</p>
+            <div class="hero">
+                <img class="heroImg" src="../assets/hero2.jpg" alt="Hero Image"/>
+                <p class="heroText">Gradimo bazene po vašoj želji</p>
+            </div>
+            <div class="hero">
+                <img class="heroImg" src="../assets/hero3.jpg" alt="Hero Image"/>
+                <p class="heroText">Gradimo bazene po vašoj želji</p>
+            </div>
+            <div class="hero">
+                <img class="heroImg" src="../assets/hero4.jpg" alt="Hero Image"/>
+                <p class="heroText">Gradimo bazene po vašoj želji</p>
+            </div>
         </div>
         <div class="aboutUs">
             <FontAwesomeIcon class="checkListIcon" icon="fa-solid fa-clipboard-check"></FontAwesomeIcon>
             <div class="checklist">
                 <p class="aboutHeader">
-                    Žašto odabrati nas?</p>
+                    Žašto <span class="aboutSpan">odabrati nas?</span></p>
                 <p class="aboutText">
-                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>300+ izgrađenih bazena i isto toliko
+                    <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>300+ izgrađenih bazena i isto toliko
                     zadovoljnih klijenata
                 </p>
                 <p class="aboutText">
-                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>25 godina iskustva
+                    <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>25 godina iskustva
                 </p>
                 <p class="aboutText">
-                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Prilagođavanje željama klijenta
+                    <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Prilagođavanje željama klijenta
                 </p>
                 <p class="aboutText">
-                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Licencirani proektanti
+                    <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Licencirani proektanti
                 </p>
                 <p class="aboutText">
-                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Višegodišnja profesionalna tehnička podrška
+                    <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Višegodišnja profesionalna tehnička podrška
                 </p>
                 <p class="aboutText">
-                    <FontAwesomeIcon icon="fa-solid fa-check"></FontAwesomeIcon>Najsavremenija AstralPool oprema
+                    <FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Najsavremenija AstralPool oprema
                 </p>
             </div>
         </div>
@@ -115,7 +131,16 @@ export default {
     margin: 0 auto;
     overflow-x: hidden;
 }
-
+.heroWrapper{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.hero{
+    position: absolute;
+    width: 100%;
+}
 .heroImg {
     width: 100%;
     position: relative;
@@ -135,17 +160,24 @@ export default {
 }
 
 .aboutHeader {
-    font-size: 2em;
+    font-size: 2.5em;
     margin: 0.5em 0;
-    font-family: Comfortaa;
+    font-family: Quicksand;
+    font-weight: bold;
+}
+.aboutSpan{
+    color: rgb(46, 94, 154);
 }
 
 .aboutText {
     font-size: 1.3em;
-    margin: 0.5em 0;
+    margin: 1em 0;
     font-family: Comfortaa;
 }
-
+.checkIcon{
+    color: rgb(46, 94, 154);
+    padding-right: 0.5em;
+}
 .aboutUs {
     display: flex;
     justify-content: space-around;
@@ -174,30 +206,32 @@ export default {
     position: relative;
     background-image: url('../assets/projektovanje.jpg');
     background-size: cover;
-    /* background-repeat: no-repeat; */
 }
 
 #renoviranje_div{
     position: relative;
     background-image: url('../assets/cleaning.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
 }
 #oprema_div{
     position: relative;
     background-image: url('../assets/MMD-Galery22.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .plavo{
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: rgb(62, 62, 239);
+    background-color: rgb(46, 94, 154);
     bottom: -100%;
     opacity: 0.5;
     z-index: 2;
+}
+.action_header{
+    font-family: Quicksand;
+    color: #fff;
+    font-size: 2.3em;
 }
 #projektovanje_div:hover .plavo, #renoviranje_div:hover .plavo, #oprema_div:hover .plavo{
     bottom: 0%;
@@ -208,10 +242,33 @@ export default {
     width: 8em;
     margin-top: 0.5em;
     align-self: center;
+    cursor: pointer;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px;
+    background-color: transparent;
+    font-family: Comfortaa;
 }
-#projektovanje_div:hover .action_btn,#projektovanje_div:hover .action_text, #renoviranje_div:hover .action_btn, #oprema_div:hover .action_btn {
+.action_btn:hover{
+    box-shadow: 0 0 1em #fff;
+    font-weight: 700;
+}
+.action_text{
+    color: #fff;
+    font-family: Comfortaa;
+    font-weight: 900;
+    padding-top: 1em;
+    line-height: 1.7em;
+}
+.action_header, .action_text{
+    width: 80%;
+    margin: 0 auto;
+}
+.action_header, .action_text, .action_btn{
     z-index: 10;  
     position: relative;
+}
+#projektovanje_div:hover .action_btn, #renoviranje_div:hover .action_btn, #oprema_div:hover .action_btn {
     display: block;  
 }
 
