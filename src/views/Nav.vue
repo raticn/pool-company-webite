@@ -16,7 +16,7 @@ export default {
                 <li class="link">Bazenska oprema</li>
                 <li class="link">Hemijska sredstva</li>
                 <li class="link">Novosti</li>
-                <li class="link"><RouterLink to="/kontakt"> Kontakt </RouterLink></li>
+                <li class="link"><RouterLink to="/kontakt#top"> Kontakt </RouterLink></li>
 
             </ul>
         </div>
