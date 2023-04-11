@@ -128,7 +128,7 @@ export default {
         </div>
         <div class="portfolio_wrapper">
             <p class="portfolio_header">Galerija</p>
-            <p class="portfolio_text">MMD Bazeni, Saune, Fontane </p>
+            <p class="portfolio_text">MMD Bazeni, Fontane, Saune </p>
             <div class="portfolio">
                 <div class="porfolio_section section1">
                     <img class="portfolio_img" src="../assets/privatniBazeni.jpg" alt="Privatni">
