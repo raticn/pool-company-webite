@@ -41,7 +41,7 @@ export default {
     justify-content: center;
 }
 .text_holder{
-    margin: 20 px;
+    margin: 20px;
     padding: 1em;
     color: rgb(46, 94, 154);
     font-size: 1.2em;
@@ -52,9 +52,7 @@ export default {
     justify-content: center;
 }
 .map_holder{
-    margin: 20 px;
+    margin: 20px;
     padding: 1em;
-    
-    justify-content: center;
 }
 </style>

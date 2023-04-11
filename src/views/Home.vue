@@ -36,12 +36,9 @@ export default {
             this.currentHero++
             if (this.currentHero > 3) {
                 this.currentHero = 0
-                console.log('if',this.currentHero);
                 this.carousel()
             }
             else {
-                // this.currentHero++
-                console.log('else',this.currentHero);
                 this.carousel()
             }
         }, 6000)
