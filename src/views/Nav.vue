@@ -1,4 +1,5 @@
 <script>
+import {RouterLink, RouterView} from "vue-router"
 
 export default {
 
@@ -8,14 +9,14 @@ export default {
 <template>
     <nav>
         <div class="nav">
-            <img class="logo" src="../assets/logo.png" alt="">
+            <RouterLink to="/"> <img class="logo" src="../assets/logo.png" alt=""></RouterLink>
             <ul class="linkovi">
-                <li class="link">Početna</li>
-                <li class="link">Galerija</li>
+                <li class="link"><RouterLink to="/"> Početna </RouterLink></li>
+                <li class="link"><RouterLink to="/galerija"> Galerija </RouterLink></li>
                 <li class="link">Bazenska oprema</li>
                 <li class="link">Hemijska sredstva</li>
                 <li class="link">Novosti</li>
-                <li class="link"><router-link to="/kontakt">Kontakt</router-link></li>
+                <li class="link"><RouterLink to="/kontakt"> Kontakt </RouterLink></li>
 
             </ul>
         </div>
@@ -54,5 +55,9 @@ export default {
 }
 .link:hover{
     border-bottom: 2px solid rgb(46, 94, 154);
+}
+a:link, a:visited, a:hover, a:active{
+    color: rgb(46, 94, 154);
+    text-decoration: none;
 }
 </style>

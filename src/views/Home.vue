@@ -75,7 +75,8 @@ export default {
         </div>
     </div>
         <div class="aboutUs">
-            <FontAwesomeIcon class="checkListIcon" icon="fa-solid fa-clipboard-check"></FontAwesomeIcon>
+            <!-- <FontAwesomeIcon class="checkListIcon" icon="fa-solid fa-clipboard-check"></FontAwesomeIcon> -->
+            <img class="homeLogo" src="../assets/transpLogo.jpg" alt="">
             <div class="checklist">
                 <p class="aboutHeader">
                     Žašto <span class="aboutSpan">odabrati nas?</span></p>
@@ -226,7 +227,9 @@ export default {
     justify-content: space-around;
     padding: 2em 0;
 }
-
+.homeLogo{
+    flex-basis: 30%;
+}
 .checkListIcon {
     font-size: 15em;
 }
@@ -361,6 +364,7 @@ export default {
     align-items: center;
     color: #fff;
     font-family: Comfortaa;
+    font-size: 0.5em;
 }
 .searchIcon{
     font-size: 2em;
@@ -379,6 +383,7 @@ export default {
     right: 0;
     cursor: pointer;
     transition: all 0.4s ease-in;
+    font-size: 1em;
 }
 @keyframes fade-in {
     0% {
