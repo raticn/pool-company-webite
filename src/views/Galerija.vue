@@ -89,7 +89,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 body{
   height:100vh;
   width: 100vw;
