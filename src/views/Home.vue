@@ -3,11 +3,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheck, faClipboardCheck, faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Nav from './Nav.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
     components: {
         Nav,
         FontAwesomeIcon,
+        Footer,
     },
     data() {
         return {
@@ -157,6 +159,8 @@ export default {
                     </div>
                 </div>
             </div>
+            <Footer/>
+
         </div>
     
 </template>
