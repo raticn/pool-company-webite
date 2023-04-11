@@ -191,8 +191,8 @@ export default {
 .heroText {
     position: absolute;
     top: 25%;
-    left: 10%;
-    width: 6em;
+    left: 5%;
+    width: 7em;
     color: #fff;
     font-size: 4em;
     font-family: Quicksand;

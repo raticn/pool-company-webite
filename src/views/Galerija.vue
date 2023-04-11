@@ -1,18 +1,91 @@
 <script>
+import Nav from './Nav.vue';
+export default {
+  components: {
+        Nav,
+        
+    },
+  mounted() {
+    const track = this.$refs.imageWrapper;
 
+    const handleOnDown = e => {
+      track.dataset.mouseDownAt = e.clientX;
+    };
+
+    const handleOnUp = () => {
+      track.dataset.mouseDownAt = "0";
+      track.dataset.prevPercentage = track.dataset.percentage;
+    };
+
+    const handleOnMove = e => {
+      if (track.dataset.mouseDownAt === "0") return;
+
+      const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+        maxDelta = window.innerWidth / 2;
+
+      const percentage =
+        (mouseDelta / maxDelta) * -100,
+        nextPercentageUnconstrained =
+          parseFloat(track.dataset.prevPercentage) + percentage,
+        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+      track.dataset.percentage = nextPercentage;
+
+      track.animate(
+        {
+          transform: `translate(${nextPercentage}%, -50%)`
+        },
+        { duration: 1200, fill: "forwards" }
+      );
+
+      for (const image of track.getElementsByClassName("image")) {
+        image.animate(
+          {
+            objectPosition: `${100 + nextPercentage}% center`
+          },
+          { duration: 1200, fill: "forwards" }
+        );
+      }
+    };
+
+    /* -- Had to add extra lines for touch events -- */
+
+    window.onmousedown = e => handleOnDown(e);
+
+    window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+    window.onmouseup = e => handleOnUp(e);
+
+    window.ontouchend = e => handleOnUp(e.touches[0]);
+
+    window.onmousemove = e => handleOnMove(e);
+
+    window.ontouchmove = e => handleOnMove(e.touches[0]);
+  }
+};
 </script>
 
 <template>
-  <div id="images_wrapper">
-    <img class="image" src="../assets/Privatni/MMDPrivatni01.jpg"/>
-    <img class="image" src="../assets/Privatni/MMDPrivatni02.jpg"/>
-    <img class="image" src="../assets/Privatni/MMDPrivatni03.jpg"/>
-    <img class="image" src="../assets/Privatni/MMDPrivatni04.jpg"/>
-    <img class="image" src="../assets/Privatni/MMDPrivatni05.jpg"/>
-    <img class="image" src="../assets/Privatni/MMDPrivatni06.jpg"/>
-    <img class="image" src="../assets/Privatni/MMDPrivatni07.jpg"/>
-    <img class="image" src="../assets/Privatni/MMDPrivatni08.jpg"/>
-    <img class="image" src="../assets/Privatni/MMDPrivatni09.jpg"/>
+  <Nav/>
+  <div id="images_wrapper" ref="imageWrapper" data-mouse-down-at="0" data-prev-percentage="0">
+    <img class="image" src="../assets/Privatni/MMDPrivatni01.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni02.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni03.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni04.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni05.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni06.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni07.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni08.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni09.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni10.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni11.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni12.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni13.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni14.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni15.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni16.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni17.jpg" draggable="false"/>
+    <img class="image" src="../assets/Privatni/MMDPrivatni18.jpg" draggable="false"/>
   </div>
 </template>
 
@@ -20,7 +93,7 @@
 body{
   height:100vh;
   width: 100vw;
-  background-color: black;
+  background-color: white;
   margin: 0rem;
   overflow: hidden;
 }
@@ -29,6 +102,7 @@ body{
     height:56vmin;
     object-fit: cover;
     object-position: center;
+    user-select: none;
   }
   #images_wrapper{
     display: flex;
