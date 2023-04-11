@@ -11,6 +11,9 @@ export default {
             
         }
     },
+    mounted() {
+    window.scrollTo(0, 0);
+  },
 }
     
 </script>
@@ -28,6 +31,7 @@ export default {
             <p>RADNO VREME : ponedeljak - petak 08:00-17:00</p>
         </div>
     </div>
+    
     <div class="form">
         <Form/>
     </div>
@@ -55,4 +59,5 @@ export default {
     margin: 20px;
     padding: 1em;
 }
+
 </style>
