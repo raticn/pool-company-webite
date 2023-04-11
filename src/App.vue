@@ -1,11 +1,14 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 import Home from './views/Home.vue';
-import Nav from './views/Nav.vue';
+import Kontakt from './views/Kontakt.vue';
+import Galerija from './views/Galerija.vue';
 
 export default {
   components: {
     Home,
+    Kontakt,
+    Galerija,
   }
 }
 </script>
