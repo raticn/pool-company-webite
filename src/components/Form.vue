@@ -29,30 +29,36 @@ export default {
         <img class="formLogo" src="../assets/transpLogo.jpg" alt="">
         <div class="form">
             <p>Kontaktirajte nas</p>
-            <form @submit.prevent="submitForm">
-                <div class="form_field">
-                    <label for="name">Ime:</label>
-                    <input type="text" id="name" v-model="form.name" required />
+            <form id="form" @submit.prevent="submitForm">
+                <div class="form_info">
+                    <div class="form_field">
+                        <input type="text" id="name" v-model="form.name" required />
+                        <label class="label" for="name">Ime:</label>
+                    </div>
+                    <div class="form_field">
+                        <input type="email" id="email" v-model="form.email" required />
+                        <label class="label" for="email">Email:</label>
+                    </div>
+                    <div class="form_field">
+                        <input type="text" id="phone" v-model="form.phone" required />
+                        <label class="label" for="phone">Telefon:</label>
+                    </div>
                 </div>
-                <div class="form_field">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" v-model="form.email" required />
+                <div class="form_message">
+                    <div class="form_field">
+                        <textarea id="message" v-model="form.message" required placeholder="Poruka"></textarea>
+                        <button class="form_btn" type="submit">Pošalji</button>
+                    </div>
                 </div>
-                <div class="form_field">
-                    <label for="phone">Telefon:</label>
-                    <input type="number" id="phone" v-model="form.phone" required />
-                </div>
-                <div class="form_field">
-                    <label for="message">Poruka:</label>
-                    <textarea id="message" v-model="form.message" required></textarea>
-                </div>
-                <button class="form_btn" type="submit">Pošalji</button>
             </form>
         </div>
     </div>
 </template>
 
 <style>
+#form{
+    display: flex;
+}
 .form_wrap{
     display: flex;
     width: 100vw;
@@ -67,9 +73,47 @@ export default {
     color: rgb(46, 94, 154);
     font-size: 1.2em;
     font-family: Comfortaa;
+    flex-basis: 50%;
 }
 input{
     align-self: center;
+}
+.form_field{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 15px 0;
+}
+
+.label{
+    position: absolute;
+    top: 0;
+    transition: all 0.3s ease;
+    color: #1d1c1c;
+    font-family: Comfortaa;
+    font-size: 0.8em;
+}
+input{
+    margin: 15px 0;
+    height: 30px;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom:1px solid #1d1c1c ;
+    color: #1d1c1c;
+    font-family: Comfortaa;
+    font-weight: bold;
+    font-size: 1em;
+}
+input:focus ~ .label {
+    top: -3px;
+    font-size: 0.5em;
+    color: rgb(24, 116, 205);
+}
+input:focus{
+    border-bottom:1px solid rgb(24, 116, 205) ;
 }
 .formLogo{
     width: 20em;
@@ -78,14 +122,27 @@ input{
     font-family: Quicksand;
     font-size: 2em;
 }
-.form_field {
-    margin: 2rem 0;
-}
 .form_btn{
-    padding: auto;
-    color: rgb(46, 94, 154);
+    border: none;
+    background-color: rgb(46, 94, 154);
+    padding: 10px;
+    width: 5em;
+    color: #fff;
     font-size: 1em;
     font-weight: 900;
     font-family: Comfortaa;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+.form_message .form_field{
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#message{
+    width: 20em;
+    height: 12em;
 }
 </style>

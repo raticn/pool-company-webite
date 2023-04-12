@@ -1,13 +1,23 @@
 <script>
 import Nav from './Nav.vue';
+import { mapActions, mapState } from 'pinia'
+import { useBazeniStore } from '../stores/bazeniStore'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 export default{
+    data() {
+        return {
+            javniS: "javniS",
+        }
+    },
     components: {
         Nav,
         FontAwesomeIcon,
+    },
+    methods: {
+        ...mapActions(useBazeniStore, ['getImages'])
     },
     created() {
         library.add(faMagnifyingGlassPlus)
@@ -25,7 +35,7 @@ export default{
             <p>Privatni bazeni</p>
         </div>    
     </div>
-    <div class="porfolio_section section2">
+    <div @click="getImages(this.javniS); this.$router.push('/galerijaSekcija')" class="porfolio_section section2">
         <img class="portfolio_img" src="../assets/javniBazeni.jpg" alt="Javni bazeni">
         <div class="portfolio_hover">
             <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>

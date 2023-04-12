@@ -39,7 +39,7 @@ export default {
         </div>
     </div>
     
-    <div class="form">
+    <div class="kontaktForm">
         <Form/>
     </div>
 

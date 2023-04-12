@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Nav from '../views/Nav.vue'
 import Kontakt from '../views/Kontakt.vue'
 import Galerija from '../views/Galerija.vue'
+import GalerijaSekcija from '../views/GalerijaSekcija.vue'
 
 
 const router = createRouter({
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/galerija',
       name: 'galerija',
       component: Galerija 
+    },
+    { 
+      path: '/galerijaSekcija',
+      name: 'galerijaSekcija',
+      component: GalerijaSekcija
     }
   ]
 })
