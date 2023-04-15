@@ -27,6 +27,9 @@ export default {
         }
     },
     mounted() {
+        window.removeEventListener("scroll", function (){
+            console.log('skidanje')
+        })
         this.heroImages = document.querySelectorAll(".hero")
         this.heroImages.forEach(function(hero, index){
         hero.style.left = `${index * 100}%`

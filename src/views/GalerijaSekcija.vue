@@ -2,44 +2,74 @@
 import { mapActions, mapState } from 'pinia'
 import { useBazeniStore } from '../stores/bazeniStore'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faXmarkCircle, faArrowCircleLeft, faCircleArrowUp} from '@fortawesome/free-solid-svg-icons'
+import { faXmarkCircle, faArrowCircleLeft, faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import axios from 'axios'
+import Nav from './Nav.vue'
 
 export default {
     data() {
         return {
             url: "",
             openPopup: false,
+            galerijaSelection:[],
+
         }
     },
     components: {
-        FontAwesomeIcon
+        FontAwesomeIcon,
+        Nav,
     },
     computed: {
-        ...mapState(useBazeniStore, ['galerijaSelection'])
+        // ...mapState(useBazeniStore, ['galerijaSelection'])
     },
     methods: {
         getUrl(image) {
             this.url = image.files_imageURL
             this.openPopup = !this.openPopup
+            document.querySelector(".top").style.display = "none"
             document.querySelector(".galerijaWrapper").style.filter = "blur(5px)"
             document.querySelector(".galerijaHeader").style.filter = "blur(5px)"
         },
         noBlur() {
             document.querySelector(".galerijaWrapper").style.filter = "none"
             document.querySelector(".galerijaHeader").style.filter = "none"
-        }
+            document.querySelector(".top").style.display = "block"
+        },
+        async priprema() {
+            let selectedImages = localStorage.getItem('selected');
+            try {
+                let images =await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
+                    params: {
+                        fil_type: selectedImages
+                    }
+                })
+                console.log(images);
+                this.galerijaSelection = images.data.q
+            } catch (error) {
+                console.log(error);
+            }
+
+        },
     },
     mounted() {
-        window.addEventListener("scroll", function() {
+        window.addEventListener("scroll", function () {
             let scrollHeight = this.window.pageYOffset
-            if(scrollHeight > 50) {
+            if (this.document.querySelector(".toTop")!=null){
+            if (!this.openPopup) {
+                if (scrollHeight > 50) {
+                    // console.log(this.document.querySelector(".toTop"));
                 this.document.querySelector(".toTop").style.display = "block"
             }
-            else{
+            else {
                 this.document.querySelector(".toTop").style.display = "none"
             }
+            }
+        }
+            
+            
         })
+        this.priprema();
     },
     created() {
         library.add(faXmarkCircle, faArrowCircleLeft, faCircleArrowUp)
@@ -48,10 +78,9 @@ export default {
 </script>
 
 <template>
+    <Nav />
     <div id="top">
         <div class="galerijaHeader">
-            <FontAwesomeIcon class="backIcon" icon="fa-solid fa-arrow-circle-left" @click="this.$router.push('/galerija')"></FontAwesomeIcon>
-            <img src="../assets/transpLogo.jpg" alt="">
             <p>Javni Bazeni</p>
         </div>
         <div class="galerijaWrapper">
@@ -60,21 +89,26 @@ export default {
             </div>
         </div>
         <div v-if="this.openPopup" class="galerijaPopup">
-            <FontAwesomeIcon class="xmark" icon="fa-solid fa-xmark-circle" @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
+            <FontAwesomeIcon class="xmark" icon="fa-solid fa-xmark-circle"
+                @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
             <img class="galerijaImgPopup" :src="this.url" alt="slike">
         </div>
-        <a href="#top"><FontAwesomeIcon class="toTop" icon="fa-solid fa-circle-arrow-up"></FontAwesomeIcon></a>
+        <a  class="top" href="#top">
+            <FontAwesomeIcon class="toTop" icon="fa-solid fa-circle-arrow-up"></FontAwesomeIcon>
+        </a>
     </div>
 </template>
 
 <style>
-*{
+* {
     scroll-behavior: smooth;
 }
-#top{
+
+#top {
     margin: 0;
 }
-.galerijaHeader{
+
+.galerijaHeader {
     font-family: Quicksand;
     font-size: 3em;
     width: 100vw;
@@ -84,16 +118,19 @@ export default {
     margin: 1em 0 0.5em;
     position: relative;
 }
-.backIcon{
+
+.backIcon {
     position: absolute;
     left: 1em;
     color: rgb(46, 94, 154);
     cursor: pointer;
 }
-.galerijaHeader img{
-    width: 1.5em;
+
+.galerijaHeader p {
+    padding-top: 2%;
 }
-.galerijaWrapper{
+
+.galerijaWrapper {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -101,16 +138,19 @@ export default {
     margin: 0 auto;
     position: relative;
 }
-.galerijaSekcija{
+
+.galerijaSekcija {
     flex-basis: 31%;
     margin: 1em 0;
 }
-.galerijaImg{
+
+.galerijaImg {
     width: 100%;
     border-radius: 10px;
     cursor: pointer;
 }
-.galerijaPopup{
+
+.galerijaPopup {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -119,17 +159,20 @@ export default {
     position: fixed;
     top: 0;
 }
-.galerijaImgPopup{
-    width: 80%;
+
+.galerijaImgPopup {
+    width: 70%;
     border-radius: 20px;
 }
-.xmark{
-    margin:0.5em 0 0.5em 75%;
+
+.xmark {
+    margin: 2em 0 0.5em 75%;
     font-size: 2em;
     color: rgb(46, 94, 154);
     cursor: pointer;
 }
-.toTop{
+
+.toTop {
     font-size: 3em;
     color: rgb(46, 94, 154);
     cursor: pointer;
@@ -137,5 +180,4 @@ export default {
     bottom: 1em;
     right: 0;
     display: none;
-}
-</style>
+}</style>

@@ -1,4 +1,4 @@
-<script>
+<script> 
 import Nav from './Nav.vue';
 import { mapActions, mapState } from 'pinia'
 import { useBazeniStore } from '../stores/bazeniStore'
@@ -10,6 +10,7 @@ export default{
     data() {
         return {
             javniS: "javniS",
+            privatni:"privatni"
         }
     },
     components: {
@@ -17,7 +18,7 @@ export default{
         FontAwesomeIcon,
     },
     methods: {
-        ...mapActions(useBazeniStore, ['getImages'])
+        ...mapActions(useBazeniStore, ['setLocalStorageSelection'])
     },
     created() {
         library.add(faMagnifyingGlassPlus)
@@ -28,14 +29,14 @@ export default{
 <template>
 <Nav/>
 <div class="portfolioGalerija">
-    <div class="porfolio_section section1">
+    <div @click="setLocalStorageSelection(this.privatni); this.$router.push('/galerijaSekcija')" class="porfolio_section section1">
         <img class="portfolio_img" src="../assets/privatniBazeni.jpg" alt="Privatni">
         <div class="portfolio_hover">
             <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
             <p>Privatni bazeni</p>
         </div>    
     </div>
-    <div @click="getImages(this.javniS); this.$router.push('/galerijaSekcija')" class="porfolio_section section2">
+    <div @click="setLocalStorageSelection(this.javniS); this.$router.push('/galerijaSekcija')" class="porfolio_section section2">
         <img class="portfolio_img" src="../assets/javniBazeni.jpg" alt="Javni bazeni">
         <div class="portfolio_hover">
             <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
