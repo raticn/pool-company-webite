@@ -1,4 +1,6 @@
 <script>
+import { mapActions, mapState } from 'pinia'
+import { useBazeniStore } from '../stores/bazeniStore'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheck, faClipboardCheck, faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -15,9 +17,12 @@ export default {
         return {
             currentHero: 0,
             heroImages: null,
+            javniS: "javniS",
+            privatni:"privatni"
         }
     },
     methods: {
+        ...mapActions(useBazeniStore, ['setLocalStorageSelection']),
         carousel() {
             let counter = this.currentHero
             this.heroImages.forEach(function(hero){
@@ -130,14 +135,14 @@ export default {
             <p class="portfolio_header">Galerija</p>
             <p class="portfolio_text">MMD Bazeni, Fontane, Saune </p>
             <div class="portfolio">
-                <div class="porfolio_section section1">
+                <div class="porfolio_section section1" @click="setLocalStorageSelection(this.privatni); this.$router.push('/galerijaSekcija')">
                     <img class="portfolio_img" src="../assets/privatniBazeni.jpg" alt="Privatni">
                     <div class="portfolio_hover">
                         <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
                         <p>Privatni bazeni</p>
                     </div>    
                 </div>
-                <div class="porfolio_section section2">
+                <div class="porfolio_section section2" @click="setLocalStorageSelection(this.privatni); this.$router.push('/galerijaSekcija')">
                     <img class="portfolio_img" src="../assets/javniBazeni.jpg" alt="Javni bazeni">
                     <div class="portfolio_hover">
                         <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
@@ -245,7 +250,7 @@ export default {
     text-align: center;
     justify-content: center;
     overflow-y: hidden;
-    height: 40em;
+    height: 32em;
 
 }
 #projektovanje_div{

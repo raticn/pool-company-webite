@@ -4,6 +4,7 @@ import Nav from '../views/Nav.vue'
 import Kontakt from '../views/Kontakt.vue'
 import Galerija from '../views/Galerija.vue'
 import GalerijaSekcija from '../views/GalerijaSekcija.vue'
+import Hemija from '../views/Hemija.vue'
 
 
 const router = createRouter({
@@ -33,7 +34,12 @@ const router = createRouter({
       path: '/galerijaSekcija',
       name: 'galerijaSekcija',
       component: GalerijaSekcija
-    }
+    },
+    { 
+      path: '/hemijskaSredstva',
+      name: 'hemijskaSredstva',
+      component: Hemija
+    },
   ]
 })
 
