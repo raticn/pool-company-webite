@@ -44,12 +44,13 @@ export default{
                 <p class="hemijaProizvodjacText">MALI TEXT DINOTEC Lorem ipsum, dolor sit amet consectetur adipisicing  ndsjkbc sbdcjskdcb sjkbcsjb s dcsk.cn skc ksncsknc sdelit. Fugit, porro?</p>
                 <div class="sredstvaWrapper">
                     <div class="sredstvo">
-                        <img src="../assets/astralpool.jpg" alt="">
-                        <p class="sredstvoIme">Ime Proizvoda</p>
+                        <img src="../assets/dinochlorine-tecnost.jpg" alt="">
+                        <p class="sredstvoIme">Dinochlorine 28 kg</p>
+                    
                     </div>
                     <div class="sredstvo">
-                        <img src="../assets/astralpool.jpg" alt="">
-                        <p class="sredstvoIme">Ime Proizvoda</p>
+                        <img src="../assets/dinominus-fluessig.jpg" alt="">
+                        <p class="sredstvoIme">DinoMinus 28 kg</p>
                     </div>
                 </div>
             </div>

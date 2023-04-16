@@ -75,7 +75,7 @@ export default {
             </div>
             <div class="hero">
                 <img class="heroImg" src="../assets/hero4.jpg" alt="Hero Image"/>
-                <p class="heroText">Ostvarite vaše želje!</p>
+                <p class="heroText">Ostvarite vaše snove!</p>
             </div>
         </div>
     </div>

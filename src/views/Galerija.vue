@@ -1,4 +1,4 @@
-<script> 
+<script>
 import Nav from './Nav.vue';
 import { mapActions, mapState } from 'pinia'
 import { useBazeniStore } from '../stores/bazeniStore'
@@ -6,11 +6,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-export default{
+export default {
     data() {
         return {
             javniS: "javniS",
-            privatni:"privatni"
+            privatni: "privatni"
         }
     },
     components: {
@@ -27,45 +27,60 @@ export default{
 </script>
 
 <template>
-<Nav/>
-<div class="portfolioGalerija">
-    <div @click="setLocalStorageSelection(this.privatni); this.$router.push('/galerijaSekcija')" class="porfolio_section section1">
-        <img class="portfolio_img" src="../assets/privatniBazeni.jpg" alt="Privatni">
-        <div class="portfolio_hover">
-            <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
-            <p>Privatni bazeni</p>
-        </div>    
+    <Nav />
+    <div class="galerijaHeader">
+        <p>Galerija</p>
     </div>
-    <div @click="setLocalStorageSelection(this.javniS); this.$router.push('/galerijaSekcija')" class="porfolio_section section2">
-        <img class="portfolio_img" src="../assets/javniBazeni.jpg" alt="Javni bazeni">
-        <div class="portfolio_hover">
-            <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
-            <p>Javni bazeni</p>
+    <div class="portfolioGalerija">
+        <div @click="setLocalStorageSelection(this.privatni); this.$router.push('/galerijaSekcija')"
+            class="porfolio_section section1">
+            <img class="portfolio_img" src="../assets/privatniBazeni.jpg" alt="Privatni">
+            <div class="portfolio_hover">
+                <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                <p>Privatni bazeni</p>
+            </div>
+        </div>
+        <div @click="setLocalStorageSelection(this.javniS); this.$router.push('/galerijaSekcija')"
+            class="porfolio_section section2">
+            <img class="portfolio_img" src="../assets/javniBazeni.jpg" alt="Javni bazeni">
+            <div class="portfolio_hover">
+                <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                <p>Javni bazeni</p>
+            </div>
+        </div>
+        <div class="porfolio_section section3">
+            <img class="portfolio_img" src="../assets/fontana.jpg" alt="Fontane">
+            <div class="portfolio_hover">
+                <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                <p>Fontane</p>
+
+            </div>
+        </div>
+        <div class="porfolio_section section4">
+            <img class="portfolio_img" src="../assets/sauna.jpg" alt="Saune">
+            <div class="portfolio_hover">
+                <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
+                <p>Saune</p>
+            </div>
         </div>
     </div>
-    <div class="porfolio_section section3">
-        <img class="portfolio_img" src="../assets/fontana.jpg" alt="Fontane">
-        <div class="portfolio_hover">
-            <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
-            <p>Fontane</p>
-            
-        </div>
-    </div>
-    <div class="porfolio_section section4">
-        <img class="portfolio_img" src="../assets/sauna.jpg" alt="Saune">
-        <div class="portfolio_hover">
-            <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
-            <p>Saune</p>
-        </div>
-    </div>
-</div>
 </template>
 
 <style>
-.portfolioGalerija{
+.portfolioGalerija {
     display: flex;
     width: 90vw;
-    margin: 15% auto 0;
+    margin: 7% auto 0;
     justify-content: space-between;
+}
+.galerijaHeader {
+    font-family: Quicksand;
+    font-size: 3em;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0 0.5em;
+    position: relative;
 }
 </style>

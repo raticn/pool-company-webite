@@ -13,6 +13,8 @@ export default {
             url: "",
             openPopup: false,
             galerijaSelection:[],
+            naslov:"",
+            
 
         }
     },
@@ -21,7 +23,7 @@ export default {
         Nav,
     },
     computed: {
-        // ...mapState(useBazeniStore, ['galerijaSelection'])
+        //  ...mapState(useBazeniStore, ['selectedText'])
     },
     methods: {
         getUrl(image) {
@@ -38,6 +40,10 @@ export default {
         },
         async priprema() {
             let selectedImages = localStorage.getItem('selected');
+            let selectedText = localStorage.getItem('selectedText');
+            this.naslov=selectedText;
+            // console.log("iz local storage dodeljen selecte text ",selectedText);
+
             try {
                 let images =await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
                     params: {
@@ -81,7 +87,7 @@ export default {
     <Nav />
     <div id="top">
         <div class="galerijaHeader">
-            <p>Javni Bazeni</p>
+            <p>{{naslov}}</p>
         </div>
         <div class="galerijaWrapper">
             <div v-for="image in this.galerijaSelection" @click="getUrl(image)" class="galerijaSekcija">
