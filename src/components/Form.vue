@@ -82,7 +82,7 @@ input{
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 90%;
     margin: 15px 0;
 }
 
