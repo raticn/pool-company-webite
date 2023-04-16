@@ -75,7 +75,7 @@ export default {
             </div>
             <div class="hero">
                 <img class="heroImg" src="../assets/hero4.jpg" alt="Hero Image"/>
-                <p class="heroText">Ostvarite vaše snove!</p>
+                <p class="heroText4">Ostvarite vaše snove!</p>
             </div>
         </div>
     </div>
@@ -207,7 +207,15 @@ export default {
     font-size: 4em;
     font-family: Quicksand;
 }
-
+.heroText4 {
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    width: 7em;
+    color: #fff;
+    font-size: 4em;
+    font-family: Quicksand;
+}
 .aboutHeader {
     font-size: 2.5em;
     margin: 0.5em 0;
