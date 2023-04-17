@@ -18,8 +18,10 @@ export default{
             <p class="hemijaSubHeader">U ponudi imamo hemijska sredstva za odrzavanje bazena proizvodjača AstralPool i Dinotec. Oba proizvodjača su svetski poznata i sa sedištem i proizvodnjom u EU. </p>
         </div>
             <div class="hemijskaSredstva">
-                <p class="hemijaProizvodjac">AstralPool</p>
-                <p class="hemijaProizvodjacText">MALI TEXT ASTRAL Lorem ipsum, dolor sit amet consectetur dnsclksncksdl sdnckjsncsk sjdbncksjcbnksjd adipisicing elit. Fugit, porro?</p>
+                <div class="astralLogo">
+                    <img src="../assets/AstralPool-Logo_high-uniform.jpg" alt="">
+                </div>
+                <p class="hemijaProizvodjacText">Ispod ćete naći našu ponudu iz asortimana hemijskih sredstava AstralPool-a. Ukoliko Vam je potrebno nešto od sredstava, a ne nalaze se na stranici, kontaktirajte nas.</p>
                 <div class="sredstvaWrapper">
                     <div class="sredstvo">
                         <img src="../assets/astralpool.jpg" alt="">
@@ -40,8 +42,10 @@ export default{
                 </div>
             </div>
             <div class="hemijskaSredstva">
-                <p class="hemijaProizvodjac">Dinotec</p>
-                <p class="hemijaProizvodjacText">MALI TEXT DINOTEC Lorem ipsum, dolor sit amet consectetur adipisicing  ndsjkbc sbdcjskdcb sjkbcsjb s dcsk.cn skc ksncsknc sdelit. Fugit, porro?</p>
+                <div class="dinotecLogo">
+                    <img src="../assets/dinotec_sigl.jpg" alt="">
+                </div>
+                <p class="hemijaProizvodjacText">Iz Dinotec asortimana izdvajamo najčešće tražena sredstva za obaranje Ph vrednosti vode i hlorisanje vode.</p>
                 <div class="sredstvaWrapper">
                     <div class="sredstvo">
                         <img src="../assets/dinochlorine-tecnost.jpg" alt="">
@@ -64,9 +68,10 @@ export default{
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    margin-top: 8%;
+    margin-top: 6%;
 }
 .hemijaHeader{
+    
     font-size: 3em;
     font-family: Quicksand;
 }
@@ -112,5 +117,12 @@ export default{
 }
 .sredstvoIme{
     padding-bottom: 1em;
+}
+.astralLogo{
+    width: 100vw;
+}
+.astralLogo img , .dinotecLogo img {
+    width: 30%;
+    margin: 2em auto;
 }
 </style>

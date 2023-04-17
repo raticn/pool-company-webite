@@ -5,7 +5,8 @@ import Kontakt from '../views/Kontakt.vue'
 import Galerija from '../views/Galerija.vue'
 import GalerijaSekcija from '../views/GalerijaSekcija.vue'
 import Hemija from '../views/Hemija.vue'
-
+import ProjektovanjeIzgradnja from '../views/ProjektovanjeIzgradnja.vue'
+import RenoviranjeOdrzavanje from '../views/RenoviranjeOdrzavanje.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +40,16 @@ const router = createRouter({
       path: '/hemijskaSredstva',
       name: 'hemijskaSredstva',
       component: Hemija
+    },
+    { 
+      path: '/projektovanjeIzgradnja',
+      name: 'projektovanjeIzgradnja',
+      component: ProjektovanjeIzgradnja
+    },
+    { 
+      path: '/renoviranjeOdrzavanje',
+      name: 'renoviranjeOdrzavanje',
+      component: RenoviranjeOdrzavanje
     },
   ]
 })
