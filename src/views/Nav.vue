@@ -13,7 +13,7 @@ export default {
             <ul class="linkovi">
                 <RouterLink to="/"><li class="link">Početna </li></RouterLink>
                 <RouterLink to="/galerija"><li class="link"> Galerija </li></RouterLink>
-                <li class="link">Bazenska oprema</li>
+                <RouterLink to="/bazenskaOprema"><li class="link">Bazenska oprema</li></RouterLink> 
                 <RouterLink to="/hemijskaSredstva"><li class="link">Hemijska sredstva</li></RouterLink> 
                 <li class="link">Novosti</li>
                 <RouterLink to="/kontakt"><li class="link"> Kontakt </li></RouterLink>

@@ -7,6 +7,7 @@ import GalerijaSekcija from '../views/GalerijaSekcija.vue'
 import Hemija from '../views/Hemija.vue'
 import ProjektovanjeIzgradnja from '../views/ProjektovanjeIzgradnja.vue'
 import RenoviranjeOdrzavanje from '../views/RenoviranjeOdrzavanje.vue'
+import BazenskaOprema from '../views/BazenskaOprema.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       path: '/renoviranjeOdrzavanje',
       name: 'renoviranjeOdrzavanje',
       component: RenoviranjeOdrzavanje
+    },
+    { 
+      path: '/bazenskaOprema',
+      name: 'bazenskaOprema',
+      component: BazenskaOprema
     },
   ]
 })
