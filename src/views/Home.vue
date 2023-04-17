@@ -142,7 +142,7 @@ export default {
                         <p>Privatni bazeni</p>
                     </div>    
                 </div>
-                <div class="porfolio_section section2" @click="setLocalStorageSelection(this.privatni); this.$router.push('/galerijaSekcija')">
+                <div class="porfolio_section section2" @click="setLocalStorageSelection(this.javniS); this.$router.push('/galerijaSekcija')">
                     <img class="portfolio_img" src="../assets/javniBazeni.jpg" alt="Javni bazeni">
                     <div class="portfolio_hover">
                         <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
