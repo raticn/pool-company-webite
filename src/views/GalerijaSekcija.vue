@@ -72,8 +72,6 @@ export default {
             }
             }
         }
-            
-            
         })
         this.priprema();
     },
@@ -186,4 +184,5 @@ export default {
     bottom: 1em;
     right: 0;
     display: none;
-}</style>
+}
+</style>
