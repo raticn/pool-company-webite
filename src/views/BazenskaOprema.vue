@@ -17,19 +17,23 @@ export default {
     <div class="sideBar">
         <p>Oprema za privatne bazene</p>
         <ul>
-            <li>Pumpa</li>
-            <li>Filter</li>
-            <li>njxan</li>
-            <li>axasx</li>
-            <li>asxasx</li>
+            <li>Pumpe</li>
+            <li>Filteri</li>
+            <li>Merdevine i rukohvati</li>
+            <li>Rasveta</li>
+            <li>Dozirna oprema</li>
+            <li>Vodene atrakcije</li>
+            <li>Dozirna oprema</li>
+            <li>Oprema za čišćenje bazena</li>
+            <li>Lajneri, pločice</li>
+            <li>Cevi i fiting</li>
         </ul>
         <p>Oprema za javne bazene</p>
         <ul>
-            <li>Pumpa</li>
-            <li>Filter</li>
-            <li>njxan</li>
-            <li>axasx</li>
-            <li>asxasx</li>
+            <li>Pumpe</li>
+            <li>Filteri</li>
+            <li>Dozirna oprema</li>
+            <li>Ostalo</li>
         </ul>
     </div>
     <div class="bazenskaOprema">

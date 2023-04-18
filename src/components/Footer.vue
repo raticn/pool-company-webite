@@ -28,12 +28,12 @@ export default{
                 <ul class="quicklinks">
                     <RouterLink to="/"> <li>Početna</li> </RouterLink>
                     <RouterLink to="/galerija"> <li>Galerija</li> </RouterLink>
-                    <li>Oprema za bazene</li>
-                    <li>Hemijska sredstva za bazene</li>
+                    <RouterLink to="/bazenskaOprema"><li>Bazenska oprema</li></RouterLink> 
+                    <RouterLink to="/hemijskaSredstva"><li>Hemijska sredstva za bazene</li></RouterLink>
                     <li>Novosti</li>
                     <RouterLink to="/kontakt"> <li>Kontakt</li> </RouterLink>
-                    <li>Projektovanje i izgradnja</li>
-                    <li>Renoviranje i održavanje</li>
+                    <RouterLink to="/projektovanjeIzgradnja"><li>Projektovanje i izgradnja bazena</li></RouterLink>
+                    <RouterLink to="/renoviranjeOdrzavanje"><li>Renoviranje i održavanje</li></RouterLink>
                     <li>Asortiman</li>
                 </ul>
             </div>
