@@ -11,7 +11,8 @@ export default {
         <div class="nav">
             <RouterLink to="/"> <img class="logo" src="../assets/logo.png" alt=""></RouterLink>
             <ul class="linkovi">
-                <RouterLink to="/"><li class="link">Početna </li></RouterLink>
+                <RouterLink to="/adminLogin"><li class="link">Login</li></RouterLink>
+                <RouterLink to="/"><li class="link">Početna</li></RouterLink>
                 <RouterLink to="/galerija"><li class="link"> Galerija </li></RouterLink>
                 <RouterLink to="/bazenskaOprema"><li class="link">Bazenska oprema</li></RouterLink> 
                 <RouterLink to="/hemijskaSredstva"><li class="link">Hemijska sredstva</li></RouterLink> 

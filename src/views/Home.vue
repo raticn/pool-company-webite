@@ -1,4 +1,5 @@
 <script>
+import {RouterLink, RouterView} from "vue-router"
 import { mapActions, mapState } from 'pinia'
 import { useBazeniStore } from '../stores/bazeniStore'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -111,14 +112,14 @@ export default {
             <div id="projektovanje_div" class="section">
                 <p class="action_header">Projektovanje i izgradnja</p>
                 <p class="action_text">Licencirani projektanti će se potruditi da prilagode projekat vašeg bazena svim Vašim željama...</p>
-                <button class="action_btn">Saznaj više</button>
+                <button class="action_btn"><RouterLink class="action_link" to="/projektovanjeIzgradnja">Saznaj više</RouterLink></button>
                 <div class="plavo"></div>
             </div>
 
             <div id="renoviranje_div"  class="section">
                 <p class="action_header">Renoviranje i održavanje</p>
                 <p class="action_text">Ukoliko je vašem bazenu neophodno renoviranje ili želite da nas angažujete za poslove održavanja rado ćemo preuzeti te obaveze...</p>
-                <button class="action_btn">Saznaj više</button>
+                <button class="action_btn"><RouterLink class="action_link" to="/renoviranjeOdrzavanje">Saznaj više</RouterLink></button>
                 <div class="plavo"></div>
 
             </div>
@@ -228,7 +229,7 @@ export default {
 
 .aboutText {
     font-size: 1.3em;
-    margin: 1em 0;
+    margin: 1.7em 0;
     font-family: Comfortaa;
 }
 .checkIcon{
@@ -238,6 +239,7 @@ export default {
 .aboutUs {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 2em 0;
 }
 .homeLogo{
@@ -258,7 +260,7 @@ export default {
     text-align: center;
     justify-content: center;
     overflow-y: hidden;
-    height: 32em;
+    height: 46em;
 
 }
 #projektovanje_div{
@@ -312,6 +314,10 @@ export default {
     box-shadow: 0 0 1em #fff;
     font-weight: 700;
 }
+.action_link{
+    text-decoration: none;
+    color: #fff;
+}
 .action_text{
     color: #fff;
     font-family: Comfortaa;
@@ -352,7 +358,7 @@ export default {
 }
 .portfolio_header{
     text-align: center;
-    margin: 1.5em 0 0.5em;
+    margin: 1em 0 0.5em;
     font-size:3em ;
     font-family: Quicksand;
     color: rgb(46, 94, 154);

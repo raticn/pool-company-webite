@@ -5,24 +5,22 @@ export const useBazeniStore = defineStore('bazeni', {
   state: () => {
     return{
       galerijaSelection: [],
-      
-      
+      wrongInfo: "",
+      isAdmin: 0,
+      sid: "",
     }
   },
   actions: {
     setLocalStorageSelection(selectedImages) {
       localStorage.setItem('selected',selectedImages);
-      // console.log(selectedImages);
       let selectedText;
       switch (selectedImages){
         
         case 'javniS' :
         selectedText = 'Javni bazeni'
-        // console.log('Selected tekst: ' + selectedText);
         break;
         case 'privatni' :
         selectedText = 'Privatni bazeni'
-        // console.log('Selected tekst: ' + selectedText);
         break;
         case 'fontane' :
         selectedText = 'Fontane'
@@ -34,6 +32,27 @@ export const useBazeniStore = defineStore('bazeni', {
 
     }  
     localStorage.setItem('selectedText',selectedText);
-    }
+    },
+    async login(username, password) {
+      this.wrongInfo = null
+      try {
+        let res = await axios.get('http://091v123.mars2.mars-hosting.com/API/auth/login' , {params: {
+          username: username,
+          password: password
+        }})
+      console.log(res);
+      this.sid = res.data.sid
+      document.cookie = `sid=${this.sid};expires=1200000;`
+      this.isAdmin = res.data.sessionUser.isAdmin
+      // console.log(res);
+      // console.log(this.sid);
+      } catch (error) {
+        // if(error.response.data.error == 'User login details are incorrect'){
+        //   this.wrongInfo = error.response.data.error
+        // }
+        // this.wrongInfo = error.response.data.error
+        // console.log(this.wrongInfo);
+      }
+    },
   }
 })

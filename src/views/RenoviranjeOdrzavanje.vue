@@ -1,13 +1,58 @@
 <script>
-
+import axios from 'axios';
 import Nav from './Nav.vue';
 import Footer from '../components/Footer.vue';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 export default {
+    data() {
+        return {
+            odrzavanjeImg1: "",
+            odrzavanjeImg2: "",
+            odrzavanjeImg3: "",
+            odrzavanjeImg4: "",
+            renoviranjeImg: "",
+        }
+    },
     components: {
         Nav,
         Footer,
-
+        FontAwesomeIcon,
     },
+    async mounted() {
+        let odrzavanje = "odrzavanje"
+        let renoviranje = "renoviranje"
+        try {
+            let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
+                params: {
+                    fil_type: odrzavanje
+                }
+            })
+            console.log(images);
+            this.odrzavanjeImg1 = images.data.q[1].files_imageURL
+            this.odrzavanjeImg2 = images.data.q[0].files_imageURL
+            this.odrzavanjeImg3 = images.data.q[2].files_imageURL
+            this.odrzavanjeImg4 = images.data.q[3].files_imageURL
+        } catch (error) {
+            console.log(error);
+        }
+        try {
+            let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
+                params: {
+                    fil_type: renoviranje
+                }
+            })
+            console.log(images);
+            this.renoviranjeImg = images.data.q[0].files_imageURL
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    created() {
+        library.add(faCheck)
+    }
 }
 </script>
 
@@ -18,7 +63,7 @@ export default {
     </div>
     <div class="renoviranjeWrapper">
         <div class="renoImgWrapper">
-            <img src="https://placehold.co/600x600" alt="Slika renoviranje">
+            <img :src="this.renoviranjeImg" alt="Slika odrzavanje">
         </div>
         <div class="renoTextWrapper">
             <p>Niste zadovoljni kako funkcioniše vaš bazen? Imate problema sa kvalitetom vode? Možda biste želeli da
@@ -46,25 +91,34 @@ export default {
             <p>Nemate vremena da se posvetite održavanju vašeg bazena? Niste zadovoni načinom na koji je do sada vodjeno
                 održavanje? </p>
             <p>Mi ćemo preuzeti brigu o vašem bazenu. U dogovoru sa Vama ćemo odrediti termine kada dolazimo na održavanje
-                vašeg bazena . Održavanje uključuje:</p>
+                vašeg bazena.</p>
+        </div>
+        <div class="odrzavanjeImgWrapper">
+            <div class="beforeAfter">
+                <img :src="this.odrzavanjeImg1" alt="">
+                <img class="after" :src="this.odrzavanjeImg2" alt="">
+            </div>
+            <div class="beforeAfter">
+                <img :src="this.odrzavanjeImg3" alt="">
+                <img class="after" :src="this.odrzavanjeImg4" alt="">
+            </div>
+        </div>
+        <div class="odrzavanjeTextWrapper">
+            <p>Održavanje uključuje:</p>
             <ul class="odrzavanjeLista">
-                <li>Kontrola kvaliteta vode (testiranje ph i nivoa hlora)</li>
-                <li>Doziranje hemijskih sredstava</li>
-                <li>Kontrolu celokupnog sistema</li>
-                <li>Čišćenje(usisavanje) bazena</li>
-                <li>Ispiranje filtera i kontrola svih filtera i opreme u sklopu bazenske opreme(rasveta, doziranje, pumpe
-                    hidromasaže , turbojeta…) </li>
-                <li>Vodjenje dnevnika svih izmerenih vrednosti pri svakom dolasku (ph,hlor, temperatura vode , dozirana
+                <li><FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Kontrolu kvaliteta vode (testiranje ph i nivoa hlora)</li>
+                <li><FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Doziranje hemijskih sredstava</li>
+                <li><FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Kontrolu celokupnog sistema</li>
+                <li><FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Čišćenje (usisavanje) bazena</li>
+                <li><FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Ispiranje filtera i kontrola svih filtera i opreme u sklopu bazenske opreme (rasveta, doziranje, pumpe
+                    hidromasaže, turbojeta…) </li>
+                <li><FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Vodjenje dnevnika svih izmerenih vrednosti pri svakom dolasku (ph, hlor, temperatura vode, dozirana
                     sredstva …)</li>
-                <li>Ukoliko kupujete hemijska sredstva preko nas isporučićemo ih na vaš bazen besplatno.</li>
+                <li><FontAwesomeIcon class="checkIcon" icon="fa-solid fa-check"></FontAwesomeIcon>Ukoliko kupujete hemijska sredstva preko nas isporučićemo ih na vaš bazen besplatno.</li>
             </ul>
-            <p>Zbog mnogo faktora kao što su lokacija bazena, veličina bazena , okolnosti korišćenja bazena kontaktirajte
+            <p>Zbog mnogo faktora kao što su lokacija bazena, veličina bazena, okolnosti korišćenja bazena kontaktirajte
                 nas za cenu.</p>
         </div>
-        <div class="odrzavanjeimgWrapper">
-            <img src="https://placehold.co/600x600" alt="Slika odrzavanje">
-        </div>
-
     </div>
 <Footer/>
 </template>
@@ -78,32 +132,66 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1em 0 0.5em;
+    margin: 2em 0 0.5em;
     position: relative;
 }
 
-.renoviranjeWrapper , .odrzavanjeWrapper{
+.renoviranjeWrapper{
     display: flex;
     justify-content: space-evenly;
-    /* align-items: center; */
     font-family: Comfortaa;
     margin-bottom: 2em;
 }
-
 .renoviranjeWrapper p , .odrzavanjeTextWrapper p{
     margin-bottom: 1em;
     line-height: 1.3em;
 }
 
-.renoImgWrapper, .renoTextWrapper, .odrzavanjeTextWrapper,.odrzavanjeimgWrapper {
+.renoImgWrapper, .renoTextWrapper{
     flex-basis: 45%;
 }
-ul.odrzavanjeLista {
-  list-style-type: disc;
+.renoImgWrapper img{
+    width: 100%;
+}
+.odrzavanjeLista li{
+    margin-bottom: 0.5em;
+}
+.odrzavanjeWrapper{
+    width: 100vw;
+    font-family: Comfortaa;
+}
+.odrzavanjeTextWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 95vw;
+}
+.odrzavanjeImgWrapper{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 95vw;
 }
 
+.beforeAfter{
+    position: relative;
+    flex-basis: 45%;
+}
+.beforeAfter img{
+    width: 100%;
+}
+.after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: fade-in-out 7s infinite;
+}
 
-
-
-
+@keyframes fade-in-out {
+    0% { opacity: 0; }
+    33% { opacity: 1; }
+    100% { opacity: 0; }
+}
 </style>

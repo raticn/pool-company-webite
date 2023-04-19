@@ -8,6 +8,9 @@ import Hemija from '../views/Hemija.vue'
 import ProjektovanjeIzgradnja from '../views/ProjektovanjeIzgradnja.vue'
 import RenoviranjeOdrzavanje from '../views/RenoviranjeOdrzavanje.vue'
 import BazenskaOprema from '../views/BazenskaOprema.vue'
+import AdminLogin from '../views/AdminLogin.vue'
+import AdminPanel from '../views/AdminPanel.vue'
+import AdminGalerija from '../views/AdminGalerija.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +59,21 @@ const router = createRouter({
       path: '/bazenskaOprema',
       name: 'bazenskaOprema',
       component: BazenskaOprema
+    },
+    { 
+      path: '/adminLogin',
+      name: 'adminLogin',
+      component: AdminLogin
+    },
+    { 
+      path: '/adminPanel',
+      name: 'adminPanel',
+      component: AdminPanel
+    },
+    { 
+      path: '/adminGalerija',
+      name: 'adminGalerija',
+      component: AdminGalerija
     },
   ]
 })

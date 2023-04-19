@@ -1,12 +1,45 @@
 <script>
+import axios from 'axios';
 import Nav from './Nav.vue';
 import Footer from '../components/Footer.vue';
 
 export default{
+    data() {
+        return {
+            astralImages: [],
+            dinotecImages: [],
+        }
+    },
     components: {
-    Nav,
-    Footer
-}
+        Nav,
+        Footer
+    },
+    async mounted() {
+        let hemija = "hemija"
+        let hemijaDinotec = "hemijaDinotec"
+        try {
+            let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/oprema', {
+                params: {
+                    fil_type: hemija
+                }
+            })
+            console.log(images);
+            this.astralImages = images.data.q
+        } catch (error) {
+            console.log(error);
+        }
+        try {
+            let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/oprema', {
+                params: {
+                    fil_type: hemijaDinotec
+                }
+            })
+            console.log(images);
+            this.dinotecImages = images.data.q
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 </script>
 
@@ -23,21 +56,9 @@ export default{
                 </div>
                 <p class="hemijaProizvodjacText">Ispod ćete naći našu ponudu iz asortimana hemijskih sredstava AstralPool-a. Ukoliko Vam je potrebno nešto od sredstava, a ne nalaze se na stranici, kontaktirajte nas.</p>
                 <div class="sredstvaWrapper">
-                    <div class="sredstvo">
-                        <img src="../assets/astralpool.jpg" alt="">
-                        <p class="sredstvoIme">Ime Proizvoda</p>
-                    </div>
-                    <div class="sredstvo">
-                        <img src="../assets/astralpool.jpg" alt="">
-                        <p class="sredstvoIme">Ime Proizvoda</p>
-                    </div>
-                    <div class="sredstvo">
-                        <img src="../assets/astralpool.jpg" alt="">
-                        <p class="sredstvoIme">Ime Proizvoda</p>
-                    </div>
-                    <div class="sredstvo">
-                        <img src="../assets/astralpool.jpg" alt="">
-                        <p class="sredstvoIme">Ime Proizvoda</p>
+                    <div v-for="img in this.astralImages" class="sredstvo">
+                        <img :src="img.files_imageURL" alt="">
+                        <p class="sredstvoIme">{{ img.fil_name }}</p>
                     </div>
                 </div>
             </div>
@@ -47,17 +68,15 @@ export default{
                 </div>
                 <p class="hemijaProizvodjacText">Iz Dinotec asortimana izdvajamo najčešće tražena sredstva za obaranje Ph vrednosti vode i hlorisanje vode.</p>
                 <div class="sredstvaWrapper">
-                    <div class="sredstvo">
-                        <img src="../assets/dinochlorine-tecnost.jpg" alt="">
-                        <p class="sredstvoIme">Dinochlorine 28 kg</p>
-                    
-                    </div>
-                    <div class="sredstvo">
-                        <img src="../assets/dinominus-fluessig.jpg" alt="">
-                        <p class="sredstvoIme">DinoMinus 28 kg</p>
+                    <div v-for="img in this.dinotecImages" class="sredstvo">
+                        <img :src="img.files_imageURL" alt="">
+                        <p class="sredstvoIme">{{ img.fil_name }}</p>
                     </div>
                 </div>
             </div>
+        <!-- <div class="hemijaPopup">
+
+        </div> -->
     </div>
     <Footer />
 </template>
@@ -116,6 +135,7 @@ export default{
     border-color:rgb(46, 94, 154);
 }
 .sredstvoIme{
+    font-size: 1.3em;
     padding-bottom: 1em;
 }
 .astralLogo{

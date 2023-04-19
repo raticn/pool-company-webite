@@ -75,9 +75,6 @@ export default {
     font-family: Comfortaa;
     flex-basis: 50%;
 }
-input{
-    align-self: center;
-}
 .form_field{
     position: relative;
     display: flex;
@@ -94,7 +91,7 @@ input{
     font-family: Comfortaa;
     font-size: 0.8em;
 }
-input{
+.form input{
     margin: 15px 0;
     height: 30px;
     width: 100%;
@@ -106,6 +103,7 @@ input{
     font-family: Comfortaa;
     font-weight: bold;
     font-size: 1em;
+    align-self: center;
 }
 input:focus ~ .label {
     top: -3px;

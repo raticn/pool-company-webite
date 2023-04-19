@@ -11,27 +11,21 @@ export default {
     data() {
         return {
             url: "",
-            openPopup: false,
             galerijaSelection:[],
             naslov:"",
-            
-
+            openPopup: false,
         }
     },
     components: {
         FontAwesomeIcon,
-        Nav,
-    },
-    computed: {
-        //  ...mapState(useBazeniStore, ['selectedText'])
     },
     methods: {
         getUrl(image) {
             this.url = image.files_imageURL
             this.openPopup = !this.openPopup
             document.querySelector(".top").style.display = "none"
-            document.querySelector(".galerijaWrapper").style.filter = "blur(5px)"
-            document.querySelector(".galerijaHeader").style.filter = "blur(5px)"
+            document.querySelector(".galerijaWrapper").style.filter = "blur(10px)"
+            document.querySelector(".galerijaHeader").style.filter = "blur(10px)"
         },
         noBlur() {
             document.querySelector(".galerijaWrapper").style.filter = "none"
@@ -42,10 +36,9 @@ export default {
             let selectedImages = localStorage.getItem('selected');
             let selectedText = localStorage.getItem('selectedText');
             this.naslov=selectedText;
-            // console.log("iz local storage dodeljen selecte text ",selectedText);
 
             try {
-                let images =await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
+                let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
                     params: {
                         fil_type: selectedImages
                     }
@@ -55,7 +48,27 @@ export default {
             } catch (error) {
                 console.log(error);
             }
-
+        },
+        onFileSelected(event) {
+        this.selectedFile = event.target.files[0]
+        this.setImage = !this.setImage
+        },
+        async onUpload() {
+            try {
+                let sid = this.getCookie("sid")
+                let fd = new FormData()
+                let sidData = new FormData()
+                fd.append('fil_picture', this.selectedFile)
+                fd.append('sid', sid)
+                sidData.append('sid', sid)
+                let res = await axios.post('http://071m123.e2.mars-hosting.com/api/auth/profile',sidData)
+                let res1 = await axios.put('http://071m123.e2.mars-hosting.com/api/auth/profile', fd)
+                this.setImage =!this.setImage
+                window.location.reload()
+                
+            } catch (error) {
+                console.log(error);
+            }
         },
     },
     mounted() {
@@ -82,20 +95,32 @@ export default {
 </script>
 
 <template>
-    <Nav />
     <div id="top">
+        <div class="panelLink">
+            <p @click="this.$router.push('/adminPanel')">Početna</p>
+        </div>
         <div class="galerijaHeader">
             <p>{{naslov}}</p>
         </div>
+        <div class="addImg">
+            <input @change="onFileSelected($event)" type="file"/>
+            <button class="addImgBtn" @click="onUpload">+Dodaj novu sliku</button>
+        </div>
         <div class="galerijaWrapper">
-            <div v-for="image in this.galerijaSelection" @click="getUrl(image)" class="galerijaSekcija">
+            <div v-for="image in this.galerijaSelection" class="galerijaSekcija">
                 <img class="galerijaImg" :src="image.files_imageURL" alt="slike" loading="lazy">
+                <button class="deleteImg" @click="getUrl(image);">Obrisi sliku</button>
             </div>
         </div>
         <div v-if="this.openPopup" class="galerijaPopup">
             <FontAwesomeIcon class="xmark" icon="fa-solid fa-xmark-circle"
-                @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
-            <img class="galerijaImgPopup" :src="this.url" alt="slike">
+            @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
+            <img class="adminImgPopup" :src="this.url" alt="slike">
+            <p>Da li ste sigurni da želite da obrišete ovu sliku?</p>
+            <div class="popupBtns">
+                <button class="yesBtn">Da</button>
+                <button class="noBtn">Ne</button>
+            </div>
         </div>
         <a  class="top" href="#top">
             <FontAwesomeIcon class="toTop" icon="fa-solid fa-circle-arrow-up"></FontAwesomeIcon>
@@ -107,82 +132,75 @@ export default {
 * {
     scroll-behavior: smooth;
 }
-
-#top {
-    margin: 0;
-}
-
-.galerijaHeader {
+.panelLink{
+    font-size: 2em;
     font-family: Quicksand;
-    font-size: 3em;
-    width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 1em 0 0.5em;
-    position: relative;
-}
-
-.backIcon {
-    position: absolute;
-    left: 1em;
-    color: rgb(46, 94, 154);
+    width: 100vw;
+    margin: 1em auto 0;
+    text-decoration: underline;
     cursor: pointer;
 }
-
-.galerijaHeader p {
-    padding-top: 2%;
-}
-
-.galerijaWrapper {
+.addImg{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 90vw;
-    margin: 0 auto;
-    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: 2em auto;
 }
-
+.addImgBtn{
+    width: 10em;
+    border: 2px solid #000;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+.addImgBtn:hover{
+    border-color: rgb(46, 191, 46);
+    color: rgb(46, 191, 46);
+}
 .galerijaSekcija {
     flex-basis: 31%;
     margin: 1em 0;
+    text-align: center;
 }
-
-.galerijaImg {
-    width: 100%;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.galerijaPopup {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-}
-
-.galerijaImgPopup {
-    width: 80%;
+.adminImgPopup {
+    width: 60%;
     border-radius: 20px;
 }
-
-.xmark {
-    margin: 2.5em 0 0.5em 75%;
+.galerijaPopup p{
     font-size: 2em;
-    color: rgb(46, 94, 154);
-    cursor: pointer;
+    margin: 1em 0;
+    font-family: Quicksand;
 }
-
-.toTop {
-    font-size: 3em;
-    color: rgb(46, 94, 154);
+.popupBtns{
+    display: flex;
+}
+.yesBtn, .noBtn{
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: Quicksand;
+    font-size: 1.2em;
     cursor: pointer;
-    position: fixed;
-    bottom: 1em;
-    right: 0;
-    display: none;
+    margin: 0 1em;
+}
+.yesBtn{
+    background-color: rgb(46, 191, 46);
+}
+.noBtn{
+    background-color: rgb(206, 19, 19);
+}
+.deleteImg{
+    border: none;
+    background-color: rgb(206, 19, 19);
+    color: #fff;
+    padding: 10px;
+    font-family: Quicksand;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-bottom: 1em;
 }
 </style>
