@@ -10,7 +10,8 @@ export default {
     data() {
         return {
             javniS: "javniS",
-            privatni: "privatni"
+            privatni: "privatni",
+            fontane: "fontane"
         }
     },
     components: {
@@ -48,7 +49,7 @@ export default {
                 <p>Javni bazeni</p>
             </div>
         </div>
-        <div class="porfolio_section section3">
+        <div @click="setLocalStorageSelection(this.fontane); this.$router.push('/galerijaSekcija')" class="porfolio_section section3">
             <img class="portfolio_img" src="../assets/fontana.jpg" alt="Fontane">
             <div class="portfolio_hover">
                 <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>

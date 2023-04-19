@@ -87,7 +87,7 @@ export default{
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    margin-top: 6%;
+    margin-top: 70px;
 }
 .hemijaHeader{
     
@@ -137,6 +137,7 @@ export default{
 .sredstvoIme{
     font-size: 1.3em;
     padding-bottom: 1em;
+    margin-top: 0.5em;
 }
 .astralLogo{
     width: 100vw;

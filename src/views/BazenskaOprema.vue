@@ -110,6 +110,9 @@ export default {
         </ul>
     </div>
     <div class="bazenskaOprema">
+        <div class="opremaHeaderWrapper">
+            <p class="opremaHeader">Bazenska oprema</p>
+        </div>
         <div class="bazenskaOpremaText">
             <p>U ponudi imamo opremu proizvodjača <span class="astralSpan">AstralPool - Fluidra</span>. Kao <span class="astralUnderline">najveći svetski proizvodjač i prodavac bazenske opreme</span> sa tradicijom dugom preko 50 godina, oprema Astrala se pokazala kao bazenska oprema sa najbolji odnosom cene i kvaliteta.</p>
             <p>Sa minimalnim brojem reklamacija, obezbedjenim servisom i ponudom celokupne bazenske opreme AstralPool se probio do samog svetskog vrha.</p>
@@ -176,7 +179,7 @@ export default {
     flex-basis: 60%;
 }
 .bazenskaOpremaText{
-    margin-top: 8%;
+    margin-top: 2%;
 }
 .astralSpan{
     font-weight: bold;
@@ -203,5 +206,17 @@ export default {
     bottom: 1em;
     left: 1em;
     display: none;
+}
+.opremaHeaderWrapper{
+    display: flex;
+    width: 90%;
+    
+}
+.opremaHeader{
+    font-size: 3em;
+    font-family: Quicksand;
+    margin-top: 70px;
+   
+    
 }
 </style>
