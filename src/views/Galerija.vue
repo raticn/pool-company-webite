@@ -1,5 +1,6 @@
 <script>
 import Nav from './Nav.vue';
+import Footer from '../components/Footer.vue';
 import { mapActions, mapState } from 'pinia'
 import { useBazeniStore } from '../stores/bazeniStore'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -17,6 +18,7 @@ export default {
     components: {
         Nav,
         FontAwesomeIcon,
+        Footer,
     },
     methods: {
         ...mapActions(useBazeniStore, ['setLocalStorageSelection'])
@@ -65,13 +67,15 @@ export default {
             </div>
         </div>
     </div>
+    <Footer/>
+    
 </template>
 
 <style>
 .portfolioGalerija {
     display: flex;
     width: 90vw;
-    margin: 7% auto 0;
+    margin: 7% auto 15%;
     justify-content: space-between;
 }
 .galerijaHeader {
