@@ -132,7 +132,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2em 0 0.5em;
+    margin: 1.5em 0 0.5em;
     position: relative;
 }
 

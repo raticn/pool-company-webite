@@ -243,8 +243,8 @@ export default {
 
 .opremaHeaderWrapper {
     display: flex;
+    justify-content: center;
     width: 90%;
-
 }
 
 .opremaHeader {

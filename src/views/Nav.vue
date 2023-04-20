@@ -1,15 +1,12 @@
 <script>
 import {RouterLink, RouterView} from "vue-router"
 
-export default {
-
-}
 </script>
 
 <template>
     <nav>
         <div class="nav">
-            <RouterLink to="/"> <img class="logo" src="../assets/logo.png" alt=""></RouterLink>
+            <RouterLink to="/"> <img class="navLogo" src="../assets/logo-no-background-cut.png" alt=""></RouterLink>
             <ul class="linkovi">
                 <RouterLink to="/adminLogin"><li class="link">Login</li></RouterLink>
                 <RouterLink to="/"><li class="link">Početna</li></RouterLink>
@@ -41,8 +38,8 @@ export default {
     border-bottom: 1px solid rgb(46, 94, 154);
     box-shadow: 0 0 10px rgb(46, 94, 154);
 }
-.logo{
-    width: 6em;
+.navLogo{
+    width: 8em;
     margin-left: 2em;
 }
 .linkovi{
@@ -59,11 +56,14 @@ export default {
     cursor: pointer;
     border-bottom: 2px solid transparent;
 }
-.link:hover{
-    border-bottom-color: rgb(46, 94, 154);
-}
-.nav a:link,.nav a:visited,.nav a:hover,.nav a:active{
-    color: rgb(46, 94, 154);
+nav a{
     text-decoration: none;
+}
+a.router-link-active .link{
+    background-color: rgb(46, 94, 154);
+    
+}
+a.router-link-active li{
+    color: #fff;
 }
 </style>

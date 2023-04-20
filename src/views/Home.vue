@@ -51,6 +51,14 @@ export default {
                 this.carousel()
             }
         }, 6000)
+
+        this.$router.beforeEach((to, from, next) => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" 
+        });
+        next();
+        });
     },
     created() {
         library.add(faCheck, faClipboardCheck,faMagnifyingGlassPlus)
@@ -69,6 +77,7 @@ export default {
             <div class="hero">
                 <img class="heroImg" src="../assets/hero2.jpg" alt="Hero Image"/>
                 <p class="heroText">Usklađujemo se sa vašim potrebama</p>
+                <!-- <img class="mainLogo" src="../assets/logo-no-background.png" alt=""> -->
             </div>
             <div class="hero">
                 <img class="heroImg" src="../assets/hero3.jpg" alt="Hero Image"/>
@@ -175,6 +184,12 @@ export default {
 <style>
 *{
     overflow-x: hidden;
+}
+.mainLogo{
+    width: 30em;
+    position: absolute;
+    top: 20%;
+    left: 10%;
 }
 .home {
     width: 100%;
