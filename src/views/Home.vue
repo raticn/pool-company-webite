@@ -77,7 +77,6 @@ export default {
             <div class="hero">
                 <img class="heroImg" src="../assets/hero2.jpg" alt="Hero Image"/>
                 <p class="heroText">Usklađujemo se sa vašim potrebama</p>
-                <!-- <img class="mainLogo" src="../assets/logo-no-background.png" alt=""> -->
             </div>
             <div class="hero">
                 <img class="heroImg" src="../assets/hero3.jpg" alt="Hero Image"/>
@@ -427,6 +426,71 @@ export default {
 
     100% {
         opacity: 1;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .aboutText{
+        margin: 1.3em 0;
+    }
+    .section{
+        height: 32em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .aboutUs{
+        flex-direction: column;
+    }
+    .homeLogo{
+        width: 60%;
+    }
+    .aboutHeader{
+        margin: 1em 0;
+        text-align: center;
+    }
+    .portfolio{
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .porfolio_section{
+        flex-basis: 45%;
+        margin-bottom: 1em;
+    }
+    .action{
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .section{
+        flex-basis: 45%;
+        margin-bottom: 2em;
+    }
+    .action_btn{
+        display: block;
+    }
+}
+
+@media (max-width: 800px) {
+    .section{
+        flex-basis: 90%;
+    }
+    .aboutText{
+        width: 80%;
+        margin: 1.3em auto;
+    }
+}
+
+@media (max-width: 479px) {
+    .porfolio_section{
+        flex-basis: 80%;
+        margin-bottom: 1em;
+    }
+    .section{
+        height: 25em;
+    }
+    .action_header{
+        width: 90%;
+        font-size: 1.8em;
     }
 }
 </style>

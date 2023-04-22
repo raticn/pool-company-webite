@@ -24,12 +24,14 @@ export default {
             this.url = image.files_imageURL
             this.openPopup = !this.openPopup
             document.querySelector(".top").style.display = "none"
-            document.querySelector(".galerijaWrapper").style.filter = "blur(10px)"
+            document.querySelector(".galerijaWrapper").style.filter = "blur(20px)"
             document.querySelector(".galerijaHeader").style.filter = "blur(10px)"
+            document.querySelector(".panelLink").style.filter = "blur(10px)"
         },
         noBlur() {
             document.querySelector(".galerijaWrapper").style.filter = "none"
             document.querySelector(".galerijaHeader").style.filter = "none"
+            document.querySelector(".panelLink").style.filter = "none"
             document.querySelector(".top").style.display = "block"
         },
         async priprema() {
@@ -202,5 +204,14 @@ export default {
     font-size: 1.2em;
     cursor: pointer;
     margin-bottom: 1em;
+}
+
+@media (max-width: 800px) {
+    .adminImgPopup{
+        width: 90%;
+    }
+    .galerijaPopup p{
+        text-align: center;
+    }
 }
 </style>

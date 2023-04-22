@@ -26,7 +26,7 @@ export default {
 
 <template>
     <div class="form_wrap">
-        <img class="formLogo" src="../assets/transpLogo.jpg" alt="">
+        <!-- <img class="formLogo" src="../assets/transpLogo.jpg" alt=""> -->
         <div class="form">
             <p>Kontaktirajte nas</p>
             <form id="form" @submit.prevent="submitForm">
@@ -46,7 +46,7 @@ export default {
                 </div>
                 <div class="form_message">
                     <div class="form_field">
-                        <textarea id="message" v-model="form.message" required placeholder="Poruka"></textarea>
+                        <textarea id="message" v-model="form.message" cols="50" rows="20" required placeholder="Poruka"></textarea>
                         <button class="form_btn" type="submit">Pošalji</button>
                     </div>
                 </div>
@@ -58,6 +58,9 @@ export default {
 <style>
 #form{
     display: flex;
+    width: 90vw;
+    justify-content: space-around;
+    margin: 0 auto;
 }
 .form_wrap{
     display: flex;
@@ -68,12 +71,11 @@ export default {
 }
 .form{
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
+    align-items: center;
     color: rgb(46, 94, 154);
     font-size: 1.2em;
     font-family: Comfortaa;
-    flex-basis: 50%;
 }
 .form_field{
     position: relative;
@@ -134,13 +136,25 @@ input:focus{
 }
 
 .form_message .form_field{
-    width: 20em;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#message{
-    width: 20em;
-    height: 12em;
+
+@media (max-width: 800px) {
+    #form{
+        flex-direction: column;
+    }
+    .form_info{
+        margin: 1em auto;
+        width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+    #message{
+        width: 100%;
+    }
 }
 </style>

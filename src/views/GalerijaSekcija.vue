@@ -165,7 +165,7 @@ export default {
 }
 
 .galerijaImgPopup {
-    width: 80%;
+    width: 70%;
     border-radius: 20px;
 }
 
@@ -184,5 +184,26 @@ export default {
     bottom: 1em;
     right: 0;
     display: none;
+}
+
+@media (max-width: 1024px) {
+    .galerijaSekcija{
+        flex-basis: 48% !important;
+    }
+    .galerijaImgPopup{
+        width: 90%;
+    }
+    .xmark{
+        margin: 5em 0 0.5em 75%;
+    }
+}
+
+@media (max-width: 480px) {
+    .galerijaWrapper{
+        justify-content: center;
+    }
+    .galerijaSekcija{
+        flex-basis: 80% !important;
+    }
 }
 </style>

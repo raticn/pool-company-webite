@@ -146,4 +146,33 @@ export default{
     width: 30%;
     margin: 2em auto;
 }
+
+@media (max-width: 1024px) {
+    .sredstvo{
+        flex-basis: 30%;
+    }
+}
+
+@media (max-width: 800px) {
+    .hemijaHeaderWrapper{
+        width: 90%;
+        margin: 70px auto 0;
+    }
+    .hemijaHeader{
+        font-size: 2.5em;
+        text-align: center;
+    }
+    .sredstvo{
+        flex-basis: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sredstvo{
+        flex-basis: 80%;
+    }
+    .hemijaHeader{
+        font-size: 2em;
+    }
+}
 </style>

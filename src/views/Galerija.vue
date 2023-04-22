@@ -88,4 +88,22 @@ export default {
     margin: 1em 0 0.5em;
     position: relative;
 }
+
+@media (max-width: 1024px) {
+    .portfolioGalerija{
+        flex-wrap: wrap;
+    }
+    .galerijaHeader{
+        margin: 1.5em 0 0.5em;
+    }
+}
+
+@media (max-width: 479px) {
+    .portfolioGalerija{
+        justify-content: center;
+    }
+    .galerijaHeader{
+        margin: 1.5em 0 0.5em;
+    }
+}
 </style>

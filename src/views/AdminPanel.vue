@@ -91,7 +91,7 @@ export default{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    width: 80%;
     margin: 0 auto 4em;
 }
 .adminHeaders{
@@ -100,7 +100,7 @@ export default{
     margin-bottom: 1em;
 }
 .textArea{
-    width: 50%;
+    width: 70%;
     height: 20em;
     margin-top: 1em;
     font-size: 1.3em;
@@ -113,5 +113,17 @@ export default{
     font-size: 1.4em;
     margin: 1em auto;
     cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .adminNav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    .adminNav ul li{
+        flex-basis: 38%;
+        margin-bottom: 1em;
+    }
 }
 </style>

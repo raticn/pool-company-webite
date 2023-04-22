@@ -194,4 +194,31 @@ export default {
     33% { opacity: 1; }
     100% { opacity: 0; }
 }
+
+@media (max-width: 1024px) {
+    .renoviranjeWrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+    .renoImgWrapper{
+        width: 50%;
+        margin-bottom: 2em;
+    }
+    .renoTextWrapper p{
+        width: 90%;
+        margin: 0 auto 1em;
+    }
+}
+
+@media (max-width: 800px) {
+    .odrzavanjeImgWrapper{
+        flex-direction: column;
+    }
+    .odrzavanjeNaslov{
+        margin: 0.5em 0 0.5em;
+    }
+    .renoImgWrapper{
+        width: 70%;
+    }
+}
 </style>

@@ -29,7 +29,7 @@ export default {
     <Nav/>
     <div class="kontakt">
         <div class="map_holder">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5656.573898576536!2d20.379310247281605!3d44.856452833266246!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a65d31e4ececf%3A0xda2a3bdf3b438749!2sMMD%20bazeni!5e0!3m2!1ssr!2srs!4v1681301340047!5m2!1ssr!2srs" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5656.573898576536!2d20.379310247281605!3d44.856452833266246!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a65d31e4ececf%3A0xda2a3bdf3b438749!2sMMD%20bazeni!5e0!3m2!1ssr!2srs!4v1681301340047!5m2!1ssr!2srs"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="text_holder">
             <p>Nalazimo se preko puta naselja Zemunske kapije</p>
@@ -52,9 +52,12 @@ export default {
     display: flex;
     justify-content: center;
 }
+.mapa{
+    width: 100%;
+    height: 28em;
+}
 .text_holder{
     margin: 20px;
-    padding: 1em;
     color: rgb(46, 94, 154);
     font-size: 1.2em;
     font-weight: 900;
@@ -62,12 +65,22 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    flex-basis: 45%;
 }
 .map_holder{
     margin: 20px;
-    padding: 1em;
+    flex-basis: 45%;
 }
 .kontaktIcons{
     padding-right: 0.7em;
+}
+
+@media (max-width: 800px) {
+    .kontakt{
+        flex-direction: column;
+    }
+    .text_holder p{
+        margin: 1em 0;
+    }
 }
 </style>
