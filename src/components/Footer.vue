@@ -30,11 +30,11 @@ export default{
                     <RouterLink to="/galerija"> <li>Galerija</li> </RouterLink>
                     <RouterLink to="/bazenskaOprema"><li>Bazenska oprema</li></RouterLink> 
                     <RouterLink to="/hemijskaSredstva"><li>Hemijska sredstva za bazene</li></RouterLink>
-                    <li>Novosti</li>
+                    <RouterLink to="/akcije"><li>Akcije</li></RouterLink>
                     <RouterLink to="/kontakt"> <li>Kontakt</li> </RouterLink>
                     <RouterLink to="/projektovanjeIzgradnja"><li>Projektovanje i izgradnja bazena</li></RouterLink>
                     <RouterLink to="/renoviranjeOdrzavanje"><li>Renoviranje i održavanje</li></RouterLink>
-                    <li>Asortiman</li>
+                    <RouterLink to="/reference"><li>Reference</li></RouterLink>
                 </ul>
             </div>
         </div>

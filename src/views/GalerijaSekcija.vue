@@ -170,9 +170,9 @@ export default {
 }
 
 .xmark {
-    margin: 2.5em 0 0.5em 75%;
-    font-size: 2em;
-    color: rgb(46, 94, 154);
+    margin: 2em 0 0.5em 75%;
+    font-size: 3em;
+    color: #000;
     cursor: pointer;
 }
 

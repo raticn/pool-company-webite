@@ -2,17 +2,50 @@
 import axios from 'axios';
 import Nav from './Nav.vue';
 import Footer from '../components/Footer.vue';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faXmarkCircle, faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 export default{
     data() {
         return {
             astralImages: [],
             dinotecImages: [],
+            openPopup: false,
+            url: "",
+            hemijaText: "",
+            astral: false,
+            dinotec: false,
+            astralText: "",
+            dinotecText: "",
         }
     },
     components: {
         Nav,
-        Footer
+        Footer,
+        FontAwesomeIcon
+    },
+    methods: {
+        getUrl(image) {
+            this.url = image.files_imageURL
+            this.openPopup = !this.openPopup
+            document.querySelector(".top").style.display = "none"
+            let sekcije = document.querySelectorAll(".hemijskaSredstva")
+            document.querySelector(".hemijaHeaderWrapper").style.filter = "blur(15px)"
+            sekcije.forEach(sekcija => {
+                sekcija.style.filter = "blur(15px)"
+            })
+        },
+        noBlur() {
+            let sekcije = document.querySelectorAll(".hemijskaSredstva")
+            document.querySelector(".hemijaHeaderWrapper").style.filter = "none"
+            sekcije.forEach(sekcija => {
+                sekcija.style.filter = "none"
+            })
+            document.querySelector(".top").style.display = "block"
+            this.astral = false
+            this.dinotec = false
+        },
     },
     async mounted() {
         let hemija = "hemija"
@@ -25,6 +58,7 @@ export default{
             })
             console.log(images);
             this.astralImages = images.data.q
+            this.astralText = images.data.q[0].fil_text.split(".")
         } catch (error) {
             console.log(error);
         }
@@ -36,9 +70,27 @@ export default{
             })
             console.log(images);
             this.dinotecImages = images.data.q
+            this.dinotecText = images.data.q[0].fil_text.split(".")
         } catch (error) {
             console.log(error);
         }
+        window.addEventListener("scroll", function () {
+            let scrollHeight = this.window.pageYOffset
+            if (this.document.querySelector(".toTop")!=null){
+            if (!this.openPopup) {
+                if (scrollHeight > 50) {
+                    // console.log(this.document.querySelector(".toTop"));
+                this.document.querySelector(".toTop").style.display = "block"
+            }
+            else {
+                this.document.querySelector(".toTop").style.display = "none"
+            }
+            }
+        }
+        })
+    },
+    created() {
+        library.add(faXmarkCircle ,faCircleArrowUp)
     }
 }
 </script>
@@ -56,7 +108,7 @@ export default{
                 </div>
                 <p class="hemijaProizvodjacText">Ispod ćete naći našu ponudu iz asortimana hemijskih sredstava AstralPool-a. Ukoliko Vam je potrebno nešto od sredstava, a ne nalaze se na stranici, kontaktirajte nas.</p>
                 <div class="sredstvaWrapper">
-                    <div v-for="img in this.astralImages" class="sredstvo">
+                    <div v-for="img in this.astralImages" class="sredstvo" @click="getUrl(img); this.astral = !this.astral">
                         <img :src="img.files_imageURL" alt="">
                         <p class="sredstvoIme">{{ img.fil_name }}</p>
                     </div>
@@ -68,15 +120,39 @@ export default{
                 </div>
                 <p class="hemijaProizvodjacText">Iz Dinotec asortimana izdvajamo najčešće tražena sredstva za obaranje Ph vrednosti vode i hlorisanje vode.</p>
                 <div class="sredstvaWrapper">
-                    <div v-for="img in this.dinotecImages" class="sredstvo">
+                    <div v-for="img in this.dinotecImages" class="sredstvo" @click="getUrl(img); this.dinotec = !this.dinotec">
                         <img :src="img.files_imageURL" alt="">
                         <p class="sredstvoIme">{{ img.fil_name }}</p>
                     </div>
                 </div>
             </div>
-        <!-- <div class="hemijaPopup">
-
-        </div> -->
+            <div v-if="this.openPopup" class="hemijaPopup">
+                <FontAwesomeIcon class="xmark" icon="fa-solid fa-xmark-circle"
+                    @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
+                <div v-if="astral" class="hemijaPopupMain">
+                    <img class="hemijaImgPopup" :src="this.url" alt="slike">
+                    <div class="hemijaTextPopup">
+                        <ul>
+                            <li v-for="text in this.astralText">
+                                - {{ text }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div v-if="dinotec" class="hemijaPopupMain">
+                    <img class="hemijaImgPopup" :src="this.url" alt="slike">
+                    <div class="hemijaTextPopup">
+                        <ul>
+                            <li v-for="text in this.dinotecText">
+                                - {{ text }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a  class="top" href="#top">
+                <FontAwesomeIcon class="toTop" icon="fa-solid fa-circle-arrow-up"></FontAwesomeIcon>
+            </a>
     </div>
     <Footer />
 </template>
@@ -127,6 +203,7 @@ export default{
     font-family: Comfortaa;
     border: 2px solid transparent;
     cursor: pointer;
+    margin-bottom: 1em;
 }
 .sredstvo img{
     width: 100%;
@@ -145,6 +222,34 @@ export default{
 .astralLogo img , .dinotecLogo img {
     width: 30%;
     margin: 2em auto;
+}
+
+.hemijaPopup {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+}
+.hemijaPopupMain{
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+.hemijaImgPopup {
+    flex-basis: 45%;
+    border-radius: 20px;
+}
+.hemijaTextPopup{
+    flex-basis: 45%;
+    font-family: Comfortaa;
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 2em;
 }
 
 @media (max-width: 1024px) {

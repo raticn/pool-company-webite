@@ -144,7 +144,7 @@ export default {
 }
 .renoviranjeWrapper p , .odrzavanjeTextWrapper p{
     margin-bottom: 1em;
-    line-height: 1.3em;
+    line-height: 1.5em;
 }
 
 .renoImgWrapper, .renoTextWrapper{

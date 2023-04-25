@@ -133,9 +133,10 @@ export default {
             </div>
 
             <div id="oprema_div" class="section">
-                <p class="action_header">Oprema i hemijska sredstva</p>
-                <p class="action_text">Bilo da su Vam potrebna hemijska sredstva za održavanje bazena ili bilo šta od bazenske opreme treba zameniti mi to imamo u ponudi...</p>
-                <button class="action_btn">Saznaj više</button>
+                <p class="action_header">Reference</p>
+                <p class="action_text">Izdvojili smo nekoliko reprezentativnih primera iz našeg 25-godišnjeg rada… 
+                </p>
+                <button class="action_btn"><RouterLink class="action_link" to="/reference">Saznaj više</RouterLink></button>
                 <div class="plavo"></div>
 
             </div>
@@ -314,13 +315,13 @@ export default {
 }
 .action_btn{
     display: none;
-    width: 8em;
+    width: 10em;
     margin-top: 0.5em;
     align-self: center;
     cursor: pointer;
     border: 2px solid #fff;
     color: #fff;
-    padding: 10px;
+    padding: 15px;
     background-color: transparent;
     font-family: Comfortaa;
 }

@@ -11,6 +11,8 @@ import BazenskaOprema from '../views/BazenskaOprema.vue'
 import AdminLogin from '../views/AdminLogin.vue'
 import AdminPanel from '../views/AdminPanel.vue'
 import AdminGalerija from '../views/AdminGalerija.vue'
+import Reference from '../views/Reference.vue'
+import Akcije from '../views/Akcije.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +58,11 @@ const router = createRouter({
       component: RenoviranjeOdrzavanje
     },
     { 
+      path: '/reference',
+      name: 'reference',
+      component: Reference
+    },
+    { 
       path: '/bazenskaOprema',
       name: 'bazenskaOprema',
       component: BazenskaOprema
@@ -74,6 +81,11 @@ const router = createRouter({
       path: '/adminGalerija',
       name: 'adminGalerija',
       component: AdminGalerija
+    },
+    { 
+      path: '/akcije',
+      name: 'akcije',
+      component: Akcije
     },
   ]
 })

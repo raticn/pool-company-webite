@@ -13,7 +13,7 @@ import {RouterLink, RouterView} from "vue-router"
                 <RouterLink to="/galerija"><li class="link"> Galerija </li></RouterLink>
                 <RouterLink to="/bazenskaOprema"><li class="link">Bazenska oprema</li></RouterLink> 
                 <RouterLink to="/hemijskaSredstva"><li class="link">Hemijska sredstva</li></RouterLink> 
-                <li class="link">Novosti</li>
+                <RouterLink to="/akcije"><li class="link">Akcije</li></RouterLink> 
                 <RouterLink to="/kontakt"><li class="link"> Kontakt </li></RouterLink>
 
             </ul>
