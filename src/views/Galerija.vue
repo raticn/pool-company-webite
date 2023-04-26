@@ -12,7 +12,8 @@ export default {
         return {
             javniS: "javniS",
             privatni: "privatni",
-            fontane: "fontane"
+            fontane: "fontane",
+            saune: "saune"
         }
     },
     components: {
@@ -59,7 +60,7 @@ export default {
 
             </div>
         </div>
-        <div class="porfolio_section section4">
+        <div @click="setLocalStorageSelection(this.saune); this.$router.push('/galerijaSekcija')" class="porfolio_section section4">
             <img class="portfolio_img" src="../assets/sauna.jpg" alt="Saune">
             <div class="portfolio_hover">
                 <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
