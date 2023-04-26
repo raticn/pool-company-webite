@@ -1,37 +1,36 @@
 <script>
 import { mapActions, mapState } from 'pinia'
 import { useBazeniStore } from '../stores/bazeniStore'
+import axios from 'axios'
 
 export default{
     data() {
         return {
             selectedFile: "",
             setImage: "",
-            akcijaText: "",
-            novostiText: "",
             javniS: "javniS",
-            privatni:"privatni"
+            privatni:"privatni",
+            akcijeSlika: "",
+            akcijeText: "",
         }
     },
     methods: {
-    ...mapActions(useBazeniStore, ['setLocalStorageSelection']),
+    ...mapActions(useBazeniStore, ['setLocalStorageSelection', 'getCookie']),
     onFileSelected(event) {
-        this.selectedFile = event.target.files[0]
-        this.setImage = !this.setImage
+        this.akcijeSlika = event.target.files[0]
     },
-    async onUpload() {
+    async onUpload($event) {
+        let akcijeTip = $event.target.id
+        console.log(this.akcijeSlika, this.akcijeText, akcijeTip);
         try {
             let sid = this.getCookie("sid")
             let fd = new FormData()
-            let sidData = new FormData()
-            fd.append('fil_picture', this.selectedFile)
+            fd.append('text', this.akcijeText)
+            fd.append('picture', this.akcijeSlika)
+            fd.append('tip', akcijeTip)
             fd.append('sid', sid)
-            sidData.append('sid', sid)
-            let res = await axios.post('http://071m123.e2.mars-hosting.com/api/auth/profile',sidData)
-            let res1 = await axios.put('http://071m123.e2.mars-hosting.com/api/auth/profile', fd)
-            this.setImage =!this.setImage
-            window.location.reload()
-            
+            let res = await axios.post('http://091v123.mars2.mars-hosting.com/API/admin/admin', fd)
+            console.log('akc', res);
         } catch (error) {
             console.log(error);
         }
@@ -55,14 +54,14 @@ export default{
         <div class="akcijeNovosti">
             <p class="adminHeaders">Akcije</p>
             <input @change="onFileSelected($event)" type="file"/>
-            <textarea class="textArea" type="text" v-model="akcijaText" placeholder="Tekst za akciju"></textarea>
-            <button class="adminBtn" @click="onUpload">Postavi akciju</button>
+            <textarea class="textArea" type="text" v-model="akcijeText" placeholder="Tekst za akciju"></textarea>
+            <button id="akcije" class="adminBtn" @click="onUpload($event)">Postavi akciju</button>
         </div>
         <div class="akcijeNovosti">
             <p class="adminHeaders">Novosti</p>
             <input @change="onFileSelected($event)" type="file"/>
-            <textarea class="textArea" type="text" v-model="novostiText" placeholder="Tekst za novosti"></textarea>
-            <button class="adminBtn" @click="onUpload">Postavi novost</button>
+            <textarea class="textArea" type="text" v-model="akcijeText1" placeholder="Tekst za novosti"></textarea>
+            <button id="novosti" class="adminBtn" @click="onUpload($event)">Postavi novost</button>
         </div>
     </div>
 </div>
