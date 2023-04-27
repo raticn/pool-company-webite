@@ -60,7 +60,7 @@ export default{
 .footer_info{
     font-size: 1.2em;
     color:#fff;
-    width: 16em;
+    width: 40%;
     margin: 2em;
     flex-basis: 33%;
     font-weight: bold;
@@ -118,5 +118,34 @@ export default{
 }
 .footer a:hover, a:active{
     color: #fff;
+}
+
+@media (max-width: 1150px) {
+    .footer_wrapper{
+        flex-direction: column;
+    }
+    .footer_info{
+        width: 90%;
+        margin: 2em auto;
+    }
+    .footer_links{
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 749px) {
+    .quicklinks li{
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer_info, .footer_links p{
+        font-size: 1em;
+    }
+    .quicklinks{
+        height: 25em;
+    }
 }
 </style>

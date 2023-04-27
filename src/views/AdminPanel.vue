@@ -14,6 +14,7 @@ export default{
             saune:"saune",
             akcijeSlika: "",
             akcijeText: "",
+            akcijeText1: "",
         }
     },
     methods: {
@@ -27,12 +28,22 @@ export default{
         try {
             let sid = this.getCookie("sid")
             let fd = new FormData()
-            fd.append('text', this.akcijeText)
-            fd.append('picture', this.akcijeSlika)
-            fd.append('tip', akcijeTip)
-            fd.append('sid', sid)
+            if(this.akcijeTip == "akcije") {
+                console.log('u if');
+                fd.append('text', this.akcijeText)
+                fd.append('picture', this.akcijeSlika)
+                fd.append('tip', akcijeTip)
+                fd.append('sid', sid)
+            }
+            else{
+                fd.append('text', this.akcijeText1)
+                fd.append('picture', this.akcijeSlika)
+                fd.append('tip', akcijeTip)
+                fd.append('sid', sid)
+            }
             let res = await axios.post('http://091v123.mars2.mars-hosting.com/API/admin/admin', fd)
             console.log('akc', res);
+            location.reload()
         } catch (error) {
             console.log(error);
         }

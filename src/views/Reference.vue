@@ -137,8 +137,22 @@ export default {
     font-family: Comfortaa;
     margin-bottom: 1em;
     line-height: 1.5em;
+    width: 45%;
 }
 .referenca span{
     font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+    .referenceWrapper{
+        font-size: 0.8em;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .referenca{
+        width: 100%;
+    }
 }
 </style>

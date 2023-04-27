@@ -19,7 +19,9 @@ export default {
             currentHero: 0,
             heroImages: null,
             javniS: "javniS",
-            privatni:"privatni"
+            privatni:"privatni",
+            fontane: "fontane",
+            saune: "saune",
         }
     },
     methods: {
@@ -159,7 +161,7 @@ export default {
                         <p>Javni bazeni</p>
                     </div>
                 </div>
-                <div class="porfolio_section section3">
+                <div class="porfolio_section section3" @click="setLocalStorageSelection(this.fontane); this.$router.push('/galerijaSekcija')">
                     <img class="portfolio_img" src="../assets/fontana.jpg" alt="Fontane">
                     <div class="portfolio_hover">
                         <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
@@ -167,7 +169,7 @@ export default {
                         
                     </div>
                 </div>
-                <div class="porfolio_section section4">
+                <div class="porfolio_section section4" @click="setLocalStorageSelection(this.saune); this.$router.push('/galerijaSekcija')">
                     <img class="portfolio_img" src="../assets/sauna.jpg" alt="Saune">
                     <div class="portfolio_hover">
                         <FontAwesomeIcon class="searchIcon" icon="fa-solid fa-magnifying-glass-plus"></FontAwesomeIcon>
@@ -444,7 +446,7 @@ export default {
         flex-direction: column;
     }
     .homeLogo{
-        width: 60%;
+        width: 40%;
     }
     .aboutHeader{
         margin: 1em 0;

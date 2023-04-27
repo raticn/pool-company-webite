@@ -33,29 +33,6 @@ export default{
                 }
             }
         },
-    //     async login(username, password) {
-    //         console.log("nesto");
-    //   this.wrongInfo = null
-    //   try {
-    //   let res = await axios.get('http://091v123.mars2.mars-hosting.com/API/auth/login' , {params: {
-    //     username: username,
-    //     password: password
-    //   }})
-    //   console.log('res',res);
-    //   console.log('res',username, password);
-    //   this.sid = res.data.sid
-    //   document.cookie = `sid=${this.sid};expires=1200000;`
-    //   this.isAdmin = res.data.sessionUser.isAdmin
-    //   console.log(res);
-    //   console.log(this.sid);
-    //   } catch (error) {
-    //     console.log(error);
-        // if(error.response.data.error == 'User login details are incorrect'){
-        //   this.wrongInfo = error.response.data.error
-        // }
-        // this.wrongInfo = error.response.data.error
-        // console.log(this.wrongInfo);
-    //   }
     },
         
     }
@@ -95,5 +72,11 @@ export default{
     font-size: 1.4em;
     margin: 1em auto;
     cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .adminLogin{
+        font-size: 1.3em;
+    }
 }
 </style>

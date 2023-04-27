@@ -32,7 +32,7 @@ export default{
     </div>
     <div v-for="akcija in this.akcNov" class="akcijeText">
         <div v-if="akcija.akc_type == 'akcije'">
-            <img :src="akcija.akc_slika" alt="akcije_slika">
+            <!-- <img :src="akcija.akc_slika" alt="akcije_slika"> -->
             <p>{{ akcija.akc_text }}</p>
         </div>
     </div>
@@ -41,7 +41,7 @@ export default{
     </div>
     <div v-for="akcija in this.akcNov" class="akcijeText">
         <div v-if="akcija.akc_type == 'novosti'">
-            <img :src="akcija.akc_slika" alt="novosti_slika">
+            <!-- <img :src="akcija.akc_slika" alt="novosti_slika"> -->
             <p>{{ akcija.akc_text }}</p>
         </div>
     </div>

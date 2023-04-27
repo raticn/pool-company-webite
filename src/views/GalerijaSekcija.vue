@@ -93,6 +93,7 @@ export default {
             </div>
         </div>
         <div v-if="this.openPopup" class="galerijaPopup">
+            
             <FontAwesomeIcon class="xmark" icon="fa-solid fa-xmark-circle"
                 @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
             <img class="galerijaImgPopup" :src="this.url" alt="slike">
@@ -156,8 +157,9 @@ export default {
 
 .galerijaPopup {
     width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -165,12 +167,16 @@ export default {
 }
 
 .galerijaImgPopup {
-    width: 70%;
+    width: 55%;
     border-radius: 20px;
 }
 
 .xmark {
-    margin: 2em 0 0.5em 75%;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    /* margin: 2em 0.5em; */
+    align-self: flex-start;
     font-size: 3em;
     color: #000;
     cursor: pointer;
@@ -191,11 +197,12 @@ export default {
         flex-basis: 48% !important;
     }
     .galerijaImgPopup{
-        width: 90%;
+        width: 80%;
+        margin:0 auto ;
     }
-    .xmark{
+    /* .xmark{
         margin: 5em 0 0.5em 75%;
-    }
+    } */
 }
 
 @media (max-width: 480px) {
@@ -204,6 +211,9 @@ export default {
     }
     .galerijaSekcija{
         flex-basis: 80% !important;
+    }
+    .galerijaImgPopup{
+        width: 90%;
     }
 }
 </style>

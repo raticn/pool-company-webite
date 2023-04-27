@@ -92,4 +92,14 @@ export default{
 .projImgWrapper img{
     width: 100%;
 }
+
+@media (max-width: 1024px) {
+    .projektovanjeWrapper, .izgradnjaWrapper{
+        flex-direction: column;
+    }
+    .projImgWrapper{
+        width: 50%;
+        margin: 0 auto 2em;
+    }
+}
 </style>
