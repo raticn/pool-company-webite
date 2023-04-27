@@ -10,6 +10,8 @@ export default{
             setImage: "",
             javniS: "javniS",
             privatni:"privatni",
+            fontane:"fontane",
+            saune:"saune",
             akcijeSlika: "",
             akcijeText: "",
         }
@@ -47,8 +49,8 @@ export default{
             <ul>
                 <li @click="setLocalStorageSelection(this.privatni); this.$router.push('/adminGalerija')">Privatni bazeni</li>
                 <li @click="setLocalStorageSelection(this.javniS); this.$router.push('/adminGalerija')">Javni bazeni</li>
-                <li>Fontane</li>
-                <li>Saune</li>
+                <li @click="setLocalStorageSelection(this.fontane); this.$router.push('/adminGalerija')">Fontane</li>
+                <li @click="setLocalStorageSelection(this.saune); this.$router.push('/adminGalerija')">Saune</li>
             </ul>
         </div>
         <div class="akcijeNovosti">

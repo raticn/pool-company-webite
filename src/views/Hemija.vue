@@ -18,6 +18,7 @@ export default{
             dinotec: false,
             astralText: "",
             dinotecText: "",
+            fil_param: "",
         }
     },
     components: {
@@ -26,19 +27,26 @@ export default{
         FontAwesomeIcon
     },
     methods: {
-        getUrl(image) {
+        async getUrl(image) {
+            let fil_id = image.fil_id
             this.url = image.files_imageURL
             this.openPopup = !this.openPopup
             document.querySelector(".top").style.display = "none"
             let sekcije = document.querySelectorAll(".hemijskaSredstva")
             document.querySelector(".hemijaHeaderWrapper").style.filter = "blur(15px)"
+            document.querySelector(".footer").style.filter = "blur(15px)"
             sekcije.forEach(sekcija => {
                 sekcija.style.filter = "blur(15px)"
             })
+            let text = await axios.get('http://091v123.mars2.mars-hosting.com/API/hemija', {params: {
+                fil_id: fil_id
+            }})
+            this.hemijaText = text.data.q[0].fil_text.split(".")
         },
         noBlur() {
             let sekcije = document.querySelectorAll(".hemijskaSredstva")
             document.querySelector(".hemijaHeaderWrapper").style.filter = "none"
+            document.querySelector(".footer").style.filter = "none"
             sekcije.forEach(sekcija => {
                 sekcija.style.filter = "none"
             })
@@ -53,10 +61,9 @@ export default{
         try {
             let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/oprema', {
                 params: {
-                    fil_type: hemija
+                    fil_type: hemija,
                 }
             })
-            console.log(images);
             this.astralImages = images.data.q
             this.astralText = images.data.q[0].fil_text.split(".")
         } catch (error) {
@@ -65,6 +72,7 @@ export default{
         try {
             let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/oprema', {
                 params: {
+                    fil_param: this.fil_param,
                     fil_type: hemijaDinotec
                 }
             })
@@ -108,7 +116,7 @@ export default{
                 </div>
                 <p class="hemijaProizvodjacText">Ispod ćete naći našu ponudu iz asortimana hemijskih sredstava AstralPool-a. Ukoliko Vam je potrebno nešto od sredstava, a ne nalaze se na stranici, kontaktirajte nas.</p>
                 <div class="sredstvaWrapper">
-                    <div v-for="img in this.astralImages" class="sredstvo" @click="getUrl(img); this.astral = !this.astral">
+                    <div v-for="img in this.astralImages" :id="img.fil_id" class="sredstvo" @click="getUrl(img); this.astral = !this.astral">
                         <img :src="img.files_imageURL" alt="">
                         <p class="sredstvoIme">{{ img.fil_name }}</p>
                     </div>
@@ -120,7 +128,7 @@ export default{
                 </div>
                 <p class="hemijaProizvodjacText">Iz Dinotec asortimana izdvajamo najčešće tražena sredstva za obaranje Ph vrednosti vode i hlorisanje vode.</p>
                 <div class="sredstvaWrapper">
-                    <div v-for="img in this.dinotecImages" class="sredstvo" @click="getUrl(img); this.dinotec = !this.dinotec">
+                    <div v-for="img in this.dinotecImages" :id="img.fil_id" class="sredstvo" @click="getUrl(img); this.astral = !this.astral">
                         <img :src="img.files_imageURL" alt="">
                         <p class="sredstvoIme">{{ img.fil_name }}</p>
                     </div>
@@ -133,13 +141,13 @@ export default{
                     <img class="hemijaImgPopup" :src="this.url" alt="slike">
                     <div class="hemijaTextPopup">
                         <ul>
-                            <li v-for="text in this.astralText">
+                            <li v-for="text in this.hemijaText">
                                 - {{ text }}
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div v-if="dinotec" class="hemijaPopupMain">
+                <!-- <div v-if="dinotec" class="hemijaPopupMain">
                     <img class="hemijaImgPopup" :src="this.url" alt="slike">
                     <div class="hemijaTextPopup">
                         <ul>
@@ -148,13 +156,15 @@ export default{
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
             <a  class="top" href="#top">
                 <FontAwesomeIcon class="toTop" icon="fa-solid fa-circle-arrow-up"></FontAwesomeIcon>
             </a>
     </div>
-    <Footer />
+    <div class="footerWrapper">
+        <Footer />
+    </div>
 </template>
 
 <style>
@@ -232,6 +242,7 @@ export default{
     align-items: center;
     position: fixed;
     top: 0;
+    z-index: 100;
 }
 .hemijaPopupMain{
     width: 95vw;
@@ -251,7 +262,9 @@ export default{
     font-size: 2em;
     line-height: 2em;
 }
-
+.footerWrapper{
+    margin-top: 9em;
+}
 @media (max-width: 1024px) {
     .sredstvo{
         flex-basis: 30%;
