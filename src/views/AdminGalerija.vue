@@ -72,6 +72,7 @@ export default {
                 console.log(error);
             }
         },
+        
     },
     mounted() {
         window.addEventListener("scroll", function () {
@@ -114,14 +115,14 @@ export default {
                 <button class="deleteImg" @click="getUrl(image);">Obrisi sliku</button>
             </div>
         </div>
-        <div v-if="this.openPopup" class="galerijaPopup">
+        <div v-if="this.openPopup"  class="galerijaPopup">
             <FontAwesomeIcon class="xmark" icon="fa-solid fa-xmark-circle"
             @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
             <img class="adminImgPopup" :src="this.url" alt="slike">
             <p>Da li ste sigurni da želite da obrišete ovu sliku?</p>
             <div class="popupBtns">
-                <button class="yesBtn">Da</button>
-                <button class="noBtn">Ne</button>
+                <button class="yesBtn" @click="deletePicture(image.fil_id)">Da</button>
+                <button class="noBtn" @click="noBlur();this.openPopup = !this.openPopup">Ne</button>
             </div>
         </div>
         <a  class="top" href="#top">

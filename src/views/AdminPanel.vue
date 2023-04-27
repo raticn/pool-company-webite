@@ -15,6 +15,7 @@ export default{
             akcijeSlika: "",
             akcijeText: "",
             akcijeText1: "",
+            akcijeTip:"",
         }
     },
     methods: {
@@ -23,8 +24,9 @@ export default{
         this.akcijeSlika = event.target.files[0]
     },
     async onUpload($event) {
-        let akcijeTip = $event.target.id
-        console.log(this.akcijeSlika, this.akcijeText, akcijeTip);
+        this.akcijeTip = $event.target.id
+        console.log(this.akcijeSlika, this.akcijeText, this.akcijeTip);
+        console.log('Da li je ispunjen uslov za ulaz u if',this.akcijeTip == "akcije");
         try {
             let sid = this.getCookie("sid")
             let fd = new FormData()
@@ -32,13 +34,13 @@ export default{
                 console.log('u if');
                 fd.append('text', this.akcijeText)
                 fd.append('picture', this.akcijeSlika)
-                fd.append('tip', akcijeTip)
+                fd.append('tip', this.akcijeTip)
                 fd.append('sid', sid)
             }
             else{
                 fd.append('text', this.akcijeText1)
                 fd.append('picture', this.akcijeSlika)
-                fd.append('tip', akcijeTip)
+                fd.append('tip', this.akcijeTip)
                 fd.append('sid', sid)
             }
             let res = await axios.post('http://091v123.mars2.mars-hosting.com/API/admin/admin', fd)

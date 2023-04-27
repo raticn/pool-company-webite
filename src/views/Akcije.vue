@@ -16,7 +16,8 @@ export default{
     async mounted() {
         try {
             let akcijeNovosti = await axios.get('http://091v123.mars2.mars-hosting.com/API/akcijeNovosti')
-            this.akcNov = akcijeNovosti.data.q
+            this.akcNov = akcijeNovosti.data.q;
+            console.log('akcNov iz data',this.akcNov);
         } catch (error) {
             console.log(error);
         }
@@ -32,7 +33,7 @@ export default{
     </div>
     <div v-for="akcija in this.akcNov" class="akcijeText">
         <div v-if="akcija.akc_type == 'akcije'">
-            <!-- <img :src="akcija.akc_slika" alt="akcije_slika"> -->
+            <img :src="akcija.akcije_novosti_imageURL" alt="akcije_slika">
             <p>{{ akcija.akc_text }}</p>
         </div>
     </div>
@@ -41,7 +42,7 @@ export default{
     </div>
     <div v-for="akcija in this.akcNov" class="akcijeText">
         <div v-if="akcija.akc_type == 'novosti'">
-            <!-- <img :src="akcija.akc_slika" alt="novosti_slika"> -->
+            <img :src="akcija.akcije_novosti_imageURL" alt="novosti_slika">
             <p>{{ akcija.akc_text }}</p>
         </div>
     </div>
