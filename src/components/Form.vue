@@ -46,7 +46,7 @@ export default {
                 </div>
                 <div class="form_message">
                     <div class="form_field">
-                        <textarea id="message" v-model="form.message" cols="50" rows="20" required placeholder="Poruka"></textarea>
+                        <textarea id="message" v-model="form.message" cols="30" rows="15" required placeholder="Poruka"></textarea>
                         <button class="form_btn" type="submit">Pošalji</button>
                     </div>
                 </div>
@@ -107,11 +107,6 @@ export default {
     font-size: 1em;
     align-self: center;
 }
-input:focus ~ .label {
-    top: -3px;
-    font-size: 0.5em;
-    color: rgb(24, 116, 205);
-}
 input:focus{
     border-bottom:1px solid rgb(24, 116, 205) ;
 }
@@ -140,6 +135,10 @@ input:focus{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+#message{
+    font-size: 1.5em;
+    box-sizing: border-box;
 }
 
 @media (max-width: 800px) {

@@ -254,6 +254,7 @@ export default{
 .hemijaImgPopup {
     flex-basis: 45%;
     border-radius: 20px;
+    margin-top: 10%;
 }
 .hemijaTextPopup{
     flex-basis: 45%;

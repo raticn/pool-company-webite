@@ -25,11 +25,13 @@ export default {
             this.openPopup = !this.openPopup
             document.querySelector(".top").style.display = "none"
             document.querySelector(".galerijaWrapper").style.filter = "blur(20px)"
+            document.querySelector(".addImg").style.filter = "blur(20px)"
             document.querySelector(".galerijaHeader").style.filter = "blur(10px)"
             document.querySelector(".panelLink").style.filter = "blur(10px)"
         },
         noBlur() {
             document.querySelector(".galerijaWrapper").style.filter = "none"
+            document.querySelector(".addImg").style.filter = "none"
             document.querySelector(".galerijaHeader").style.filter = "none"
             document.querySelector(".panelLink").style.filter = "none"
             document.querySelector(".top").style.display = "block"
@@ -115,7 +117,7 @@ export default {
                 <button class="deleteImg" @click="getUrl(image);">Obrisi sliku</button>
             </div>
         </div>
-        <div v-if="this.openPopup"  class="galerijaPopup">
+        <div v-if="this.openPopup"  class="galerijaAdminPopup">
             <FontAwesomeIcon class="xmark" icon="fa-solid fa-xmark-circle"
             @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
             <img class="adminImgPopup" :src="this.url" alt="slike">
@@ -170,10 +172,20 @@ export default {
     text-align: center;
 }
 .adminImgPopup {
-    width: 60%;
+    width: 55%;
     border-radius: 20px;
 }
-.galerijaPopup p{
+.galerijaAdminPopup {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+}
+.galerijaAdminPopup p{
     font-size: 2em;
     margin: 1em 0;
     font-family: Quicksand;
@@ -211,7 +223,7 @@ export default {
     .adminImgPopup{
         width: 90%;
     }
-    .galerijaPopup p{
+    .galerijaAdminPopup p{
         text-align: center;
     }
 }
