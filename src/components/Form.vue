@@ -26,27 +26,26 @@ export default {
 
 <template>
     <div class="form_wrap">
-        <!-- <img class="formLogo" src="../assets/transpLogo.jpg" alt=""> -->
         <div class="form">
             <p>Kontaktirajte nas</p>
-            <form id="form" @submit.prevent="submitForm">
+            <form id="form" action="https://formsubmit.co/mmd.doo@gmail.com" method="POST" @submit.prevent="submitForm">
                 <div class="form_info">
                     <div class="form_field">
-                        <input type="text" id="name" v-model="form.name" required />
+                        <input name="name" type="text" id="name" v-model="form.name" required />
                         <label class="label" for="name">Ime:</label>
                     </div>
                     <div class="form_field">
-                        <input type="email" id="email" v-model="form.email" required />
+                        <input name="email" type="email" id="email" v-model="form.email" required />
                         <label class="label" for="email">Email:</label>
                     </div>
                     <div class="form_field">
-                        <input type="text" id="phone" v-model="form.phone" required />
+                        <input name="phone" type="text" id="phone" v-model="form.phone" required />
                         <label class="label" for="phone">Telefon:</label>
                     </div>
                 </div>
                 <div class="form_message">
                     <div class="form_field">
-                        <textarea id="message" v-model="form.message" cols="30" rows="15" required placeholder="Poruka"></textarea>
+                        <textarea name="poruka" id="message" v-model="form.message" cols="30" rows="15" required placeholder="Poruka"></textarea>
                         <button class="form_btn" type="submit">Pošalji</button>
                     </div>
                 </div>

@@ -50,12 +50,39 @@ export default{
             console.log(error);
         }
     },
+    logout() {
+        try {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.startsWith("sid=")) {
+            document.cookie = `${cookie};expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+        break;
+        }
+    }
+    location.reload()
+        } catch (error) {
+            console.log(error);
+        }
+        },
+    },
+    computed: {
+        ...mapState(useBazeniStore, ['isAdmin']),
+    },
+    mounted() {
+        let sid = this.getCookie("sid")
+        if(!sid){
+            this.$router.push('/')
+        }
     }
 }
 </script>
 
 <template>
 <div class="adminPanel">
+    <div class="logout">
+        <button class="logoutBtn" @click="logout">Log out</button>
+    </div>
     <div class="akcijeNovostiWrapper">
         <div class="adminNav">
             <p class="adminHeaders">Slike</p>
@@ -64,6 +91,7 @@ export default{
                 <li @click="setLocalStorageSelection(this.javniS); this.$router.push('/adminGalerija')">Javni bazeni</li>
                 <li @click="setLocalStorageSelection(this.fontane); this.$router.push('/adminGalerija')">Fontane</li>
                 <li @click="setLocalStorageSelection(this.saune); this.$router.push('/adminGalerija')">Saune</li>
+                <li @click="this.$router.push('/akcije')">Akcije</li>
             </ul>
         </div>
         <div class="akcijeNovosti">
@@ -83,6 +111,19 @@ export default{
 </template>
 
 <style>
+.logout{
+    width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.logoutBtn{
+    background-color: transparent;
+    border: 2px solid rgb(206, 19, 19);
+    padding: 10px;
+    font-family: Quicksand;
+    cursor: pointer;
+}
 .adminNav{
     display: flex;
     flex-direction: column;

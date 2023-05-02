@@ -14,14 +14,18 @@ export default {
             galerijaSelection:[],
             naslov:"",
             openPopup: false,
+            imgId: "",
+            selectedFile: "",
         }
     },
     components: {
         FontAwesomeIcon,
     },
     methods: {
+        ...mapActions(useBazeniStore, ['getCookie']),
         getUrl(image) {
             this.url = image.files_imageURL
+            this.imgId = image.fil_id
             this.openPopup = !this.openPopup
             document.querySelector(".top").style.display = "none"
             document.querySelector(".galerijaWrapper").style.filter = "blur(20px)"
@@ -55,29 +59,43 @@ export default {
         },
         onFileSelected(event) {
         this.selectedFile = event.target.files[0]
-        this.setImage = !this.setImage
         },
         async onUpload() {
+            let selectedImages = localStorage.getItem('selected');
             try {
                 let sid = this.getCookie("sid")
                 let fd = new FormData()
-                let sidData = new FormData()
-                fd.append('fil_picture', this.selectedFile)
+                fd.append('pictureGalery', this.selectedFile)
+                fd.append('fileType', selectedImages)
                 fd.append('sid', sid)
-                sidData.append('sid', sid)
-                let res = await axios.post('http://071m123.e2.mars-hosting.com/api/auth/profile',sidData)
-                let res1 = await axios.put('http://071m123.e2.mars-hosting.com/api/auth/profile', fd)
-                this.setImage =!this.setImage
-                window.location.reload()
-                
+                let res1 = await axios.post('http://091v123.mars2.mars-hosting.com/API/admin/adminSlike', fd)
+                console.log(res1);
+                location.reload()
             } catch (error) {
                 console.log(error);
             }
         },
-        
+        deleteImg(id) {
+            let sid = this.getCookie("sid")
+            let brisanje = axios.delete('http://091v123.mars2.mars-hosting.com/API/admin/admin', {
+                params: {
+                    sid: sid,
+                    deleteId: id
+                }
+            })
+            this.openPopup = !this.openPopup
+        }
+    },
+    computed: {
+        ...mapState(useBazeniStore, ['isAdmin']),
     },
     mounted() {
-        window.addEventListener("scroll", function () {
+        let sid = this.getCookie("sid")
+        if(!sid){
+            this.$router.push('/')
+        }
+        else{
+            window.addEventListener("scroll", function () {
             let scrollHeight = this.window.pageYOffset
             if (this.document.querySelector(".toTop")!=null){
             if (!this.openPopup) {
@@ -92,6 +110,7 @@ export default {
         }
         })
         this.priprema();
+        }
     },
     created() {
         library.add(faXmarkCircle, faArrowCircleLeft, faCircleArrowUp)
@@ -123,7 +142,7 @@ export default {
             <img class="adminImgPopup" :src="this.url" alt="slike">
             <p>Da li ste sigurni da želite da obrišete ovu sliku?</p>
             <div class="popupBtns">
-                <button class="yesBtn" @click="deletePicture(image.fil_id)">Da</button>
+                <button class="yesBtn" @click="deleteImg(this.imgId); noBlur()">Da</button>
                 <button class="noBtn" @click="noBlur();this.openPopup = !this.openPopup">Ne</button>
             </div>
         </div>
