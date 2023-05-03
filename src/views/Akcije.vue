@@ -147,12 +147,14 @@ export default{
     margin: 1.5em 0 0.5em;
 }
 .akcijeText{
+    font-size: 1.5em;
     text-align: center;
     margin-bottom: 1.5em;
 }
 .akcijeDatum{
     font-family: Quicksand;
     margin-bottom: 1em;
+    font-size: 0.8em;
 }
 .akcNov{
     display: flex;

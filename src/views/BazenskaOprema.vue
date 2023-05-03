@@ -18,24 +18,6 @@ export default {
         FontAwesomeIcon
     },
     methods: {
-        sideBarToggle($event) {
-            const clickedSection = $event.target;
-            const clickedList = clickedSection.nextElementSibling;
-
-            const activeSection = document.querySelector('.activeSection');
-            const activeList = activeSection.nextElementSibling;
-
-            if (clickedSection === activeSection) {
-                return
-            }
-            else {
-                activeSection.classList.remove('activeSection');
-                activeList.style.display = 'none';
-
-                clickedSection.classList.add('activeSection');
-                clickedList.style.display = 'block';
-            }
-        },
         async astralPoolInfo($event) {
             let id = $event.target.id
             let astralParam;
@@ -52,9 +34,21 @@ export default {
                     }
                 })
                 this.astralData = astral.data.q
-                console.log('astral', astral.data);
             } catch (error) {
                 console.log(error);
+            }
+            const clickedSection = $event.target;
+            // const clickedList = clickedSection.nextElementSibling;
+
+            const activeSection = document.querySelector('.activeSection');
+
+            if (clickedSection === activeSection) {
+                return
+            }
+            else {
+                activeSection.classList.remove('activeSection');
+
+                clickedSection.classList.add('activeSection');
             }
         }
     },
@@ -94,34 +88,12 @@ export default {
     <Nav />
 
     <div class="bazenskaOpremaWrapper" id="opremaTop">
-        <div class="sideBar">
-            <p id="sideBarSection1" class="activeSection" @click="sideBarToggle($event); astralPoolInfo($event)">Oprema za
-                privatne bazene</p>
-            <ul class="sideBarList1 activeList">
-                <li><a href="#pumpa">Pumpe</a></li>
-                <li><a href="#filter">Filteri</a></li>
-                <li><a href="#merdevine">Merdevine i rukohvati</a></li>
-                <li><a href="#rasveta">Rasveta</a></li>
-                <li><a href="#doziranje">Dozirna oprema</a></li>
-                <li><a href="#vodopadi">Vodene atrakcije</a></li>
-                <li><a href="#turbojet">Uređaji za plivanje u mestu</a></li>
-                <li><a href="#ciscenje">Oprema za čišćenje bazena</a></li>
-                <li><a href="#robot">Roboti</a></li>
-                <li><a href="#obloge">Lajneri, pločice</a></li>
-                <li><a href="#cevovodi">Cevi i fiting</a></li>
-            </ul>
-            <p id="sideBarSection2" @click="sideBarToggle($event); astralPoolInfo($event)">Oprema za javne bazene</p>
-            <ul class="sideBarList2">
-                <li><a href="#pumpaJavni">Pumpe</a></li>
-                <li><a href="#filterJavni">Filteri</a></li>
-                <li><a href="#doziranjeJavni">Dozirna oprema</a></li>
-                <li><a href="#ostaloJavni">Ostalo</a></li>
-            </ul>
-        </div>
         <div class="bazenskaOprema">
-            <div class="opremaHeaderWrapper">
-                <p class="opremaHeader">Bazenska oprema</p>
-            </div>
+            <div class="sideBar">
+            <p id="sideBarSection1" class="activeSection" @click="astralPoolInfo($event)">Oprema za
+                privatne bazene</p>
+            <p id="sideBarSection2" @click="astralPoolInfo($event)">Oprema za javne bazene</p>
+        </div>
             <div class="bazenskaOpremaText">
                 <p>U ponudi imamo opremu proizvodjača <span class="astralSpan">AstralPool - Fluidra</span>. Kao <span
                         class="astralUnderline">najveći svetski proizvodjač i prodavac bazenske opreme</span> sa tradicijom
@@ -153,20 +125,14 @@ export default {
 
 <style>
 .sideBar {
-    flex-basis: 22%;
-    margin-top: 60px;
-    font-family: Comfortaa;
+    display: flex;
+    width: 90vw;
+    justify-content: center;
+    margin: 4% auto 0;
+    font-family: Quicksand;
+    font-size: 2.5em;
 }
 
-.sideBar li {
-    margin: 1em 0 0 2em;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.sideBar li a {
-    color: #000;
-}
 
 #sideBarSection1,
 #sideBarSection2 {
@@ -198,11 +164,11 @@ export default {
 }
 
 .opremaPrikaz {
-    flex-basis: 40%;
+    flex-basis: 30%;
 }
 
 .opremaText {
-    flex-basis: 60%;
+    flex-basis: 50%;
 }
 
 .bazenskaOpremaText {
@@ -219,11 +185,13 @@ export default {
 
 .bazenskaOpremaWrapper {
     display: flex;
+    flex-direction: column;
 }
 
 .oprema {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-top: 60px;
 }
 
@@ -245,6 +213,7 @@ export default {
     display: flex;
     justify-content: center;
     width: 90%;
+    margin: 0 auto;
 }
 
 .opremaHeader {

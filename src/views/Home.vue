@@ -90,6 +90,9 @@ export default {
             </div>
         </div>
     </div>
+    <!-- <div class="proba">
+        <img src="../assets/hero2.jpg" alt="">
+    </div> -->
         <div class="aboutUs">
             <!-- <FontAwesomeIcon class="checkListIcon" icon="fa-solid fa-clipboard-check"></FontAwesomeIcon> -->
             <img class="homeLogo" src="../assets/transpLogo.jpg" alt="">
@@ -184,6 +187,17 @@ export default {
 </template>
 
 <style>
+/* .proba{ */
+    /* background-image: url('../assets/hero2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; */
+    /* width: 100vw; */
+    /* height: 100vh;
+    max-height: 100%; */
+/* } */
+/* .proba img{
+    width: 100%;
+} */
 *{
     overflow-x: hidden;
 }
