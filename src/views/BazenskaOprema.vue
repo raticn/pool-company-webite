@@ -128,9 +128,10 @@ export default {
     display: flex;
     width: 90vw;
     justify-content: center;
-    margin: 4% auto 0;
+    margin: 80px auto 0;
     font-family: Quicksand;
     font-size: 2.5em;
+    text-decoration: underline;
 }
 
 
@@ -165,6 +166,7 @@ export default {
 
 .opremaPrikaz {
     flex-basis: 30%;
+    font-family: Quicksand;
 }
 
 .opremaText {
@@ -220,5 +222,42 @@ export default {
     font-size: 3em;
     font-family: Quicksand;
     margin-top: 70px;
+}
+
+@media (max-width: 1250px) {
+    .sideBar{
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .sideBar{
+        font-size: 1.5em;
+    }
+    .opremaText{
+        padding: 0 0.5em;
+        box-sizing: border-box;
+    }
+    .opremaPrikaz img{
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    .sideBar{
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.4em;
+        margin-bottom: 1em;
+    }
+    .oprema{
+        flex-direction: column;
+        align-items: center;
+    }
+    .opremaPrikaz p {
+        text-align: center;
+        font-size: 1.3em;
+        margin: 0.5em 0;
+    }
 }
 </style>

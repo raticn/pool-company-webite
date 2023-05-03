@@ -30,7 +30,7 @@ export default{
         <div class="downloads">
             <img src="../assets/tabela-hemija.jpg" alt="Tabela">
             <a href="../assets/TABELA-HEMIJA.rtf" download> <FontAwesomeIcon class="downloadIcon" icon="fa-solid fa-file-arrow-down"></FontAwesomeIcon> Tabela za hemijska sredstva</a>
-        </div>    
+        </div> 
     </div>
     <Footer/>
 
@@ -39,51 +39,35 @@ export default{
 
 <style>
 .downloadsWrapper{
-    display: flex;
-    margin-top: 7%;
-    margin-bottom: 7%;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 90%;
-   
-    
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 80px 0 2em;
 }
-.downloads {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 50%; /* Set the width of the container */
-  }
-
-  .downloads img {
-    flex: 1;
-    max-height: 100%; /* Set the maximum height of the image */
-    object-fit: contain; /* Ensure the image maintains aspect ratio */
-    width: 50%;
-  }
-  .downloads a {
-    margin-top: 1em;
-    font-family: Comfortaa;
-    cursor: pointer;
-  }
-  .downloadIcon{
-    font-size: 1.5em;
-  }
-  /* Set the aspect ratio of the image */
+.downloads{
+  flex-basis: 22%;
+  margin: 2em 0;
+}
+.downloads img{
+  width: 100%;
+}
   @supports (aspect-ratio: 16/9) {
     .downloads img {
       aspect-ratio: 16/9;
     }
   }
 
-  /* Fallback for browsers that don't support aspect-ratio property */
-  @media (max-width: 768px) {
-    .downloads img {
-      height: auto;
-      width: 100%;
-    }
+@media (max-width: 800px) {
+  .downloads{
+    flex-basis: 30%;
   }
+}
+@media (max-width: 550px) {
+  .downloads{
+    flex-basis: 40%;
+  }
+}
 
 </style>
