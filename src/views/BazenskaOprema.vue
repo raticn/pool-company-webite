@@ -251,6 +251,5 @@ export default {
     font-size: 3em;
     font-family: Quicksand;
     margin-top: 70px;
-
-
-}</style>
+}
+</style>

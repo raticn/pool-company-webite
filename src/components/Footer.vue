@@ -35,6 +35,7 @@ export default{
                     <RouterLink to="/projektovanjeIzgradnja"><li>Projektovanje i izgradnja bazena</li></RouterLink>
                     <RouterLink to="/renoviranjeOdrzavanje"><li>Renoviranje i održavanje</li></RouterLink>
                     <RouterLink to="/reference"><li>Reference</li></RouterLink>
+                    <RouterLink to="/downloads"><li>Downloads</li></RouterLink>
                 </ul>
             </div>
         </div>
@@ -90,7 +91,7 @@ export default{
     height: 15em;
     flex-direction: column;
     flex-wrap:wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     
 }
 .quicklinks li{

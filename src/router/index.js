@@ -13,6 +13,7 @@ import AdminPanel from '../views/AdminPanel.vue'
 import AdminGalerija from '../views/AdminGalerija.vue'
 import Reference from '../views/Reference.vue'
 import Akcije from '../views/Akcije.vue'
+import Downloads from '../views/Downloads.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -86,6 +87,11 @@ const router = createRouter({
       path: '/akcije',
       name: 'akcije',
       component: Akcije
+    },
+    { 
+      path: '/downloads',
+      name: 'downloads',
+      component: Downloads
     },
   ]
 })

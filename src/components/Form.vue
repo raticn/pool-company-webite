@@ -28,7 +28,7 @@ export default {
     <div class="form_wrap">
         <div class="form">
             <p>Kontaktirajte nas</p>
-            <form id="form" action="https://formsubmit.co/mmd.doo@gmail.com" method="POST" @submit.prevent="submitForm">
+            <form id="form" action="https://formsubmit.co/2216b1633ebe0295149efa316c8f1f5b" method="POST" >
                 <div class="form_info">
                     <div class="form_field">
                         <input name="name" type="text" id="name" v-model="form.name" required />
@@ -139,6 +139,14 @@ input:focus{
     font-size: 1.5em;
     box-sizing: border-box;
 }
+.form_info{
+        margin: 1em auto;
+        width: 30%;
+    }
+.form_field input {
+  padding-top: 10px; /* Adjust as needed */
+}
+
 
 @media (max-width: 800px) {
     #form{

@@ -30,8 +30,8 @@ export default {
             this.url = image.files_imageURL
             this.openPopup = !this.openPopup
             document.querySelector(".top").style.display = "none"
-            document.querySelector(".galerijaWrapper").style.filter = "blur(5px)"
-            document.querySelector(".galerijaHeader").style.filter = "blur(5px)"
+            document.querySelector(".galerijaWrapper").style.filter = "blur(15px) brightness(95%)"
+            document.querySelector(".galerijaHeader").style.filter = "blur(15px) brightness(95%)"
         },
         noBlur() {
             document.querySelector(".galerijaWrapper").style.filter = "none"
@@ -167,13 +167,13 @@ export default {
 }
 
 .galerijaImgPopup {
-    width: 55%;
+    width: 70%;
     border-radius: 20px;
 }
 
 .xmark {
     position: absolute;
-    top: 70px;
+    top: 79px;
     right: 20px;
     /* margin: 2em 0.5em; */
     align-self: flex-start;
