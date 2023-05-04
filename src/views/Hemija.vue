@@ -214,6 +214,7 @@ export default{
     border: 2px solid transparent;
     cursor: pointer;
     margin-bottom: 1em;
+    box-sizing: border-box;
 }
 .sredstvo img{
     width: 100%;
@@ -223,8 +224,7 @@ export default{
 }
 .sredstvoIme{
     font-size: 1.3em;
-    padding-bottom: 1em;
-    margin-top: 0.5em;
+    padding-top: 0.5em;
 }
 .astralLogo{
     width: 100vw;
@@ -249,7 +249,7 @@ export default{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin: 0 auto;
+    margin: 80px auto 0;
 }
 .hemijaImgPopup {
     flex-basis: 45%;
@@ -270,6 +270,12 @@ export default{
     .sredstvo{
         flex-basis: 30%;
     }
+    .hemijaPopupMain{
+        flex-direction: column;
+    }
+    .hemijaImgPopup{
+        width: 60%;
+    }
 }
 
 @media (max-width: 800px) {
@@ -284,6 +290,9 @@ export default{
     .sredstvo{
         flex-basis: 48%;
     }
+    .hemijaTextPopup{
+        font-size: 1.3em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -292,6 +301,9 @@ export default{
     }
     .hemijaHeader{
         font-size: 2em;
+    }
+    .hemijaImgPopup{
+        width: 80%;
     }
 }
 </style>

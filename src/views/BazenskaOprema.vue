@@ -89,11 +89,9 @@ export default {
 
     <div class="bazenskaOpremaWrapper" id="opremaTop">
         <div class="bazenskaOprema">
-            <div class="sideBar">
-            <p id="sideBarSection1" class="activeSection" @click="astralPoolInfo($event)">Oprema za
-                privatne bazene</p>
-            <p id="sideBarSection2" @click="astralPoolInfo($event)">Oprema za javne bazene</p>
-        </div>
+            <div class="bazenskaOpremaHeader">
+                <p>Bazenska oprema</p>
+            </div>
             <div class="bazenskaOpremaText">
                 <p>U ponudi imamo opremu proizvodjača <span class="astralSpan">AstralPool - Fluidra</span>. Kao <span
                         class="astralUnderline">najveći svetski proizvodjač i prodavac bazenske opreme</span> sa tradicijom
@@ -105,6 +103,11 @@ export default {
                     nalaze u EU.</p>
                 <p>U ponudi imamo opremu za privatne bazene i za javne bazene. U zavisnosti šta Vam je potrebno možemo Vam
                     ponuduti:</p>
+            </div>
+            <div class="sideBar">
+                <p id="sideBarSection1" class="activeSection" @click="astralPoolInfo($event)">Oprema za
+                    privatne bazene</p>
+                <p id="sideBarSection2" @click="astralPoolInfo($event)">Oprema za javne bazene</p>
             </div>
             <div v-for="astral in this.astralData" :id="astral.fil_param" class="oprema">
                 <div class="opremaPrikaz">
@@ -124,13 +127,22 @@ export default {
 </template>
 
 <style>
+.bazenskaOpremaHeader{
+    font-family: Quicksand;
+    font-size: 3em;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em 0 0.5em;
+}
 .sideBar {
     display: flex;
     width: 90vw;
     justify-content: center;
-    margin: 80px auto 0;
+    margin: 0 auto;
     font-family: Quicksand;
-    font-size: 2.5em;
+    font-size: 2em;
     text-decoration: underline;
 }
 
@@ -258,6 +270,12 @@ export default {
         text-align: center;
         font-size: 1.3em;
         margin: 0.5em 0;
+    }
+}
+@media (max-width: 480px) {
+    .bazenskaOpremaHeader{
+        font-size: 2em;
+        margin-top:2.5em;
     }
 }
 </style>

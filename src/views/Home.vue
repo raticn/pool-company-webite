@@ -421,19 +421,6 @@ export default {
     transition: all 0.4s ease-in;
     font-size: 1em;
 }
-.heroWrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  grid-auto-flow: column;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  /* other styles */
-}
-.hero {
-  scroll-snap-align: start;
-  /* other styles */
-}
 @keyframes fade-in {
     0% {
         opacity: 0.85;

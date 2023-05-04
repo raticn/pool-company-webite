@@ -67,6 +67,9 @@ export default {
     justify-content: space-evenly;
     flex-basis: 45%;
 }
+.text_holder p{
+    padding-top: 10px;
+}
 .map_holder{
     margin: 20px;
     flex-basis: 45%;
