@@ -3,7 +3,7 @@ import Nav from './Nav.vue'
 
 export default {
     components: {
-        Nav
+        Nav,
     }
 }
 </script>
@@ -137,7 +137,7 @@ export default {
     font-family: Comfortaa;
     margin-bottom: 1em;
     line-height: 1.5em;
-    width: 45%;
+    width: 30%;
 }
 .referenca span{
     font-weight: bold;
@@ -146,7 +146,6 @@ export default {
 @media (max-width: 1000px) {
     .referenceWrapper{
         font-size: 0.8em;
-        height: auto;
     }
 }
 

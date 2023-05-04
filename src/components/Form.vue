@@ -45,7 +45,7 @@ export default {
                 </div>
                 <div class="form_message">
                     <div class="form_field">
-                        <textarea name="poruka" id="message" v-model="form.message" cols="30" rows="15" required placeholder="Poruka"></textarea>
+                        <textarea name="poruka" id="message" v-model="form.message" cols="30" rows="10" required placeholder="Poruka"></textarea>
                         <button class="form_btn" type="submit">Pošalji</button>
                     </div>
                 </div>

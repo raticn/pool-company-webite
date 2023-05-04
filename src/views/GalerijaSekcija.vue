@@ -2,7 +2,7 @@
 import { mapActions, mapState } from 'pinia'
 import { useBazeniStore } from '../stores/bazeniStore'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faXmarkCircle, faArrowCircleLeft, faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { faXmarkCircle, faArrowCircleLeft, faCircleArrowUp, faRotate } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import axios from 'axios'
 import Nav from './Nav.vue'
@@ -14,16 +14,11 @@ export default {
             openPopup: false,
             galerijaSelection:[],
             naslov:"",
-            
-
         }
     },
     components: {
         FontAwesomeIcon,
         Nav,
-    },
-    computed: {
-        //  ...mapState(useBazeniStore, ['selectedText'])
     },
     methods: {
         getUrl(image) {
@@ -44,8 +39,6 @@ export default {
             let selectedImages = localStorage.getItem('selected');
             let selectedText = localStorage.getItem('selectedText');
             this.naslov=selectedText;
-            // console.log("iz local storage dodeljen selecte text ",selectedText);
-
             try {
                 let images =await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
                     params: {
@@ -78,7 +71,7 @@ export default {
         this.priprema();
     },
     created() {
-        library.add(faXmarkCircle, faArrowCircleLeft, faCircleArrowUp)
+        library.add(faXmarkCircle, faArrowCircleLeft, faCircleArrowUp, faRotate)
     }
 }
 </script>
@@ -99,7 +92,7 @@ export default {
             <FontAwesomeIcon class="xmark" icon="fa-solid fa-xmark-circle"
                 @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
             <img class="galerijaImgPopup" :src="this.url" alt="slike">
-            <p>Zarotirajte telefon </p>
+            <p>Zarotirajte telefon <FontAwesomeIcon icon="fa-solid fa-rotate"></FontAwesomeIcon> </p>
         </div>
         <a  class="top" href="#top">
             <FontAwesomeIcon class="toTop" icon="fa-solid fa-circle-arrow-up"></FontAwesomeIcon>
@@ -178,8 +171,6 @@ export default {
     font-weight: bolder;
     color: white;
     text-shadow: -2px -2px 0 #000, -2px 2px 0 #000,2px 2px 0 #000;
-
-
 }
 
 .galerijaImgPopup {
@@ -238,7 +229,7 @@ export default {
 @media (orientation: landscape){
     .xmark{
         /* top: 15px; */
-        right: 15px;
+        right: 20px;
         font-size: 2em;
     }    
     .galerijaPopup p{

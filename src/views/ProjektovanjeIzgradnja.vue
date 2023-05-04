@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import Nav from './Nav.vue';
+import Footer from '../components/Footer.vue';
 
 export default{
     data() {
@@ -11,6 +12,7 @@ export default{
     },
     components:{
         Nav,
+        Footer
     },
     async mounted() {
         try {
@@ -63,6 +65,7 @@ export default{
             </div>
         </div>
     </div>
+    <Footer />
 </template>
 
 <style>
@@ -92,10 +95,16 @@ export default{
 .projImgWrapper img{
     width: 100%;
 }
+.izgradnjaTextWrapper{
+    margin-top: 1em;
+}
 
 @media (max-width: 1024px) {
-    .projektovanjeWrapper, .izgradnjaWrapper{
+    .projektovanjeWrapper{
         flex-direction: column;
+    }
+    .izgradnjaWrapper{
+        flex-direction: column-reverse;
     }
     .projImgWrapper{
         width: 50%;

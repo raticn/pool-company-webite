@@ -5,6 +5,8 @@ import { useBazeniStore } from '../stores/bazeniStore'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheck, faClipboardCheck, faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 import Nav from './Nav.vue'
 import Footer from '../components/Footer.vue'
 
@@ -71,7 +73,7 @@ export default {
 <template>
     <div class="home">
         <Nav />
-        <div class="heroWrapper">
+        <!-- <div class="heroWrapper">
             <div class="hero">
                 <img class="heroImg" src="../assets/hero1.jpg" alt="Hero Image"/>
                 <p class="heroText">Gradimo bazene po vašoj želji</p>
@@ -88,6 +90,48 @@ export default {
                 <img class="heroImg" src="../assets/hero4.jpg" alt="Hero Image"/>
                 <p class="heroText4">Ostvarite vaše snove!</p>
             </div>
+        </div> -->
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../assets/hero01.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Gradimo bazene po vašoj želji</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../assets/hero2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Usklađujemo se sa vašim potrebama</h3>
+                    </div>
+                </div>
+                <div class="carousel-item" >
+                    <img src="../assets/hero3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Mnogo zadovoljnih klijenata</h3>
+                    </div>
+                </div>
+                <div class="carousel-item" >
+                    <img src="../assets/hero04.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Ostvarite vaše snove!</h3>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
         <div class="aboutUs">
@@ -122,14 +166,14 @@ export default {
             <div id="projektovanje_div" class="section">
                 <p class="action_header">Projektovanje i izgradnja</p>
                 <p class="action_text">Licencirani projektanti će se potruditi da prilagode projekat bazena svim vašim željama...</p>
-                <button class="action_btn"><RouterLink class="action_link" to="/projektovanjeIzgradnja">Saznaj više</RouterLink></button>
+                <RouterLink class="action_link" to="/projektovanjeIzgradnja"><button class="action_btn">Saznaj više</button></RouterLink>
                 <div class="plavo"></div>
             </div>
 
             <div id="renoviranje_div"  class="section">
                 <p class="action_header">Renoviranje i održavanje</p>
                 <p class="action_text">Ukoliko je vašem bazenu neophodno renoviranje ili želite da nas angažujete za poslove održavanja rado ćemo preuzeti te obaveze...</p>
-                <button class="action_btn"><RouterLink class="action_link" to="/renoviranjeOdrzavanje">Saznaj više</RouterLink></button>
+                <RouterLink class="action_link" to="/renoviranjeOdrzavanje"><button class="action_btn">Saznaj više</button></RouterLink>
                 <div class="plavo"></div>
 
             </div>
@@ -138,7 +182,7 @@ export default {
                 <p class="action_header">Reference</p>
                 <p class="action_text">Izdvojili smo nekoliko reprezentativnih primera iz našeg 25-godišnjeg rada… 
                 </p>
-                <button class="action_btn"><RouterLink class="action_link" to="/reference">Saznaj više</RouterLink></button>
+                <RouterLink class="action_link" to="/reference"><button class="action_btn">Saznaj više</button></RouterLink>
                 <div class="plavo"></div>
 
             </div>
@@ -234,6 +278,10 @@ export default {
     font-size: 4em;
     font-family: Quicksand;
 }
+h3{
+    padding: 1px 0;
+    text-shadow: -1px -1px 0 #000, -1px 1px 0 #000,1px 1px 0 #000;
+}
 .aboutHeader {
     font-size: 2.5em;
     margin: 0.5em 0;
@@ -328,12 +376,14 @@ export default {
     font-family: Comfortaa;
 }
 .action_btn:hover{
-    box-shadow: 0 0 1em #fff;
+    box-shadow: 0 0 10px #fff;
     font-weight: 700;
 }
 .action_link{
     text-decoration: none;
     color: #fff;
+    display: flex;
+    justify-content: center;
 }
 .action_text{
     color: #fff;
@@ -480,6 +530,9 @@ export default {
     .aboutText{
         width: 80%;
         margin: 1.3em auto;
+    }
+    #carouselExampleCaptions{
+        margin-top: 4em;
     }
 }
 

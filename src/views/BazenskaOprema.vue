@@ -149,10 +149,11 @@ export default {
 
 #sideBarSection1,
 #sideBarSection2 {
-    margin: 1em 0 0 1em;
     cursor: pointer;
 }
-
+#sideBarSection1{
+    margin-right: 0.7em;
+}
 .activeSection {
     font-weight: bold;
     display: block;

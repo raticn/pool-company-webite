@@ -146,7 +146,6 @@ export default {
     margin-bottom: 1em;
     line-height: 1.5em;
 }
-
 .renoImgWrapper, .renoTextWrapper{
     flex-basis: 45%;
 }
@@ -164,7 +163,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 1em auto 0;
     width: 95vw;
 }
 .odrzavanjeImgWrapper{
@@ -207,6 +206,9 @@ export default {
     .renoTextWrapper p{
         width: 90%;
         margin: 0 auto 1em;
+    }
+    .beforeAfter{
+        margin-bottom: 1em;
     }
 }
 

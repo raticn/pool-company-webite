@@ -74,6 +74,9 @@ export default{
     display: flex;
     justify-content: center;
 }
+ul{
+    margin: 0;
+}
 .link{
     list-style: none;
     padding:1em ;
