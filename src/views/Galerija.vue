@@ -82,6 +82,7 @@ export default {
 .galerijaHeader {
     font-family: Quicksand;
     font-size: 3em;
+    text-align: center;
     width: 100vw;
     display: flex;
     justify-content: center;

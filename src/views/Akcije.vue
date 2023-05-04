@@ -161,11 +161,11 @@ export default{
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 .akcNov img{
-    width:40%;
+    width:85%;
     margin-bottom: 1em;
 }
 .akcNovWrapper{
@@ -194,5 +194,11 @@ export default{
     .akcImgPopup{
         width: 90%;
     }
+}
+@media (max-width:480px){
+    .akcNov img{
+    width:95%;
+    
+}
 }
 </style>

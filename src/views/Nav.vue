@@ -140,4 +140,10 @@ a.router-link-active li{
         display: block;
     }
 }
+/*  @media (orientation: landscape){
+    .nav2{
+        height: 40px;
+        filter: blur(20px);
+    }    
+} */
 </style>

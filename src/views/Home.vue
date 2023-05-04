@@ -90,9 +90,6 @@ export default {
             </div>
         </div>
     </div>
-    <!-- <div class="proba">
-        <img src="../assets/hero2.jpg" alt="">
-    </div> -->
         <div class="aboutUs">
             <!-- <FontAwesomeIcon class="checkListIcon" icon="fa-solid fa-clipboard-check"></FontAwesomeIcon> -->
             <img class="homeLogo" src="../assets/transpLogo.jpg" alt="">
@@ -124,7 +121,7 @@ export default {
 
             <div id="projektovanje_div" class="section">
                 <p class="action_header">Projektovanje i izgradnja</p>
-                <p class="action_text">Licencirani projektanti će se potruditi da prilagode projekat vašeg bazena svim Vašim željama...</p>
+                <p class="action_text">Licencirani projektanti će se potruditi da prilagode projekat bazena svim vašim željama...</p>
                 <button class="action_btn"><RouterLink class="action_link" to="/projektovanjeIzgradnja">Saznaj više</RouterLink></button>
                 <div class="plavo"></div>
             </div>
@@ -187,17 +184,6 @@ export default {
 </template>
 
 <style>
-/* .proba{ */
-    /* background-image: url('../assets/hero2.jpg');
-    background-size: cover;
-    background-repeat: no-repeat; */
-    /* width: 100vw; */
-    /* height: 100vh;
-    max-height: 100%; */
-/* } */
-/* .proba img{
-    width: 100%;
-} */
 *{
     overflow-x: hidden;
 }
@@ -434,6 +420,19 @@ export default {
     cursor: pointer;
     transition: all 0.4s ease-in;
     font-size: 1em;
+}
+.heroWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-auto-flow: column;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  /* other styles */
+}
+.hero {
+  scroll-snap-align: start;
+  /* other styles */
 }
 @keyframes fade-in {
     0% {

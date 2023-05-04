@@ -32,11 +32,13 @@ export default {
             document.querySelector(".top").style.display = "none"
             document.querySelector(".galerijaWrapper").style.filter = "blur(15px) brightness(95%)"
             document.querySelector(".galerijaHeader").style.filter = "blur(15px) brightness(95%)"
+            document.querySelector(".nav2").style.filter = "blur(15px) brightness(95%)"
         },
         noBlur() {
             document.querySelector(".galerijaWrapper").style.filter = "none"
             document.querySelector(".galerijaHeader").style.filter = "none"
             document.querySelector(".top").style.display = "block"
+            document.querySelector(".nav2").style.filter = "none"
         },
         async priprema() {
             let selectedImages = localStorage.getItem('selected');
@@ -97,6 +99,7 @@ export default {
             <FontAwesomeIcon class="xmark" icon="fa-solid fa-xmark-circle"
                 @click="noBlur(); this.openPopup = !this.openPopup"></FontAwesomeIcon>
             <img class="galerijaImgPopup" :src="this.url" alt="slike">
+            <p>Zarotirajte telefon </p>
         </div>
         <a  class="top" href="#top">
             <FontAwesomeIcon class="toTop" icon="fa-solid fa-circle-arrow-up"></FontAwesomeIcon>
@@ -159,11 +162,24 @@ export default {
     width: 100vw;
     height: 100vh;
     display: flex;
-    /* flex-direction: column; */
+    z-index: 150;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
     top: 0;
+}
+
+.galerijaPopup p{
+    display:none;
+    font-size: 1.3em;
+    margin-top: 1em;
+    font-family: Quicksand;
+    font-weight: bolder;
+    color: white;
+    text-shadow: -2px -2px 0 #000, -2px 2px 0 #000,2px 2px 0 #000;
+
+
 }
 
 .galerijaImgPopup {
@@ -215,5 +231,20 @@ export default {
     .galerijaImgPopup{
         width: 90%;
     }
+    .galerijaPopup p{
+        display: block;
+    }
 }
+@media (orientation: landscape){
+    .xmark{
+        /* top: 15px; */
+        right: 15px;
+        font-size: 2em;
+    }    
+    .galerijaPopup p{
+        display: none;
+    }
+}
+   
+
 </style>
