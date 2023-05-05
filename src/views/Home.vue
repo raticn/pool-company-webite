@@ -281,6 +281,7 @@ export default {
 h3{
     padding: 1px 0;
     text-shadow: -1px -1px 0 #000, -1px 1px 0 #000,1px 1px 0 #000;
+    line-height: 1.6;
 }
 .aboutHeader {
     font-size: 2.5em;
