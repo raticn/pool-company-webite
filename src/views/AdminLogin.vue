@@ -18,8 +18,6 @@ export default{
         async adminLogin() {
             await this.login(this.username, this.password)
             let wrongInfo = this.wrongInfo
-            console.log('usao', wrongInfo);
-            console.log('isadmin', this.isAdmin);
             if(wrongInfo ){
                 alert('Username ili lozinka nisu tačni!')
                 return

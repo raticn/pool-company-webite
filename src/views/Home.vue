@@ -38,7 +38,7 @@ export default {
     },
     mounted() {
         window.removeEventListener("scroll", function (){
-            console.log('skidanje')
+            console.log('noscroll')
         })
         this.heroImages = document.querySelectorAll(".hero")
         this.heroImages.forEach(function(hero, index){
@@ -73,25 +73,7 @@ export default {
 <template>
     <div class="home">
         <Nav />
-        <!-- <div class="heroWrapper">
-            <div class="hero">
-                <img class="heroImg" src="../assets/hero1.jpg" alt="Hero Image"/>
-                <p class="heroText">Gradimo bazene po vašoj želji</p>
-            </div>
-            <div class="hero">
-                <img class="heroImg" src="../assets/hero2.jpg" alt="Hero Image"/>
-                <p class="heroText">Usklađujemo se sa vašim potrebama</p>
-            </div>
-            <div class="hero">
-                <img class="heroImg" src="../assets/hero3.jpg" alt="Hero Image"/>
-                <p class="heroText">Mnogo zadovoljnih klijenata</p>
-            </div>
-            <div class="hero">
-                <img class="heroImg" src="../assets/hero4.jpg" alt="Hero Image"/>
-                <p class="heroText4">Ostvarite vaše snove!</p>
-            </div>
-        </div> -->
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -99,25 +81,25 @@ export default {
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active" data-bs-interval="5000">
                     <img src="../assets/hero01.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Gradimo bazene po vašoj želji</h3>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-bs-interval="5000">
                     <img src="../assets/hero2.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Usklađujemo se sa vašim potrebama</h3>
                     </div>
                 </div>
-                <div class="carousel-item" >
+                <div class="carousel-item" data-bs-interval="5000">
                     <img src="../assets/hero3.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Mnogo zadovoljnih klijenata</h3>
                     </div>
                 </div>
-                <div class="carousel-item" >
+                <div class="carousel-item" data-bs-interval="5000">
                     <img src="../assets/hero04.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Ostvarite vaše snove!</h3>

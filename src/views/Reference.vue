@@ -110,6 +110,7 @@ export default {
             <p>Spoljašnji bazen: 12 x 6 x 1.5 m (prelivni)</p>
         </div>
         
+        
     </div>
     
 </div>
@@ -129,7 +130,7 @@ export default {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 90vh;
+    height: 310vh;
     width: 95vw;
     margin: 0 auto;
 }

@@ -51,7 +51,6 @@ export default {
                         fil_type: selectedImages
                     }
                 })
-                console.log(images);
                 this.galerijaSelection = images.data.q
             } catch (error) {
                 console.log(error);
@@ -69,7 +68,6 @@ export default {
                 fd.append('fileType', selectedImages)
                 fd.append('sid', sid)
                 let res1 = await axios.post('http://091v123.mars2.mars-hosting.com/API/admin/adminSlike', fd)
-                console.log(res1);
                 location.reload()
             } catch (error) {
                 console.log(error);
@@ -100,7 +98,6 @@ export default {
             if (this.document.querySelector(".toTop")!=null){
             if (!this.openPopup) {
                 if (scrollHeight > 50) {
-                    // console.log(this.document.querySelector(".toTop"));
                 this.document.querySelector(".toTop").style.display = "block"
             }
             else {

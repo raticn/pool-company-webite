@@ -30,7 +30,6 @@ export default {
                     fil_type: odrzavanje
                 }
             })
-            console.log(images);
             this.odrzavanjeImg1 = images.data.q[1].files_imageURL
             this.odrzavanjeImg2 = images.data.q[0].files_imageURL
             this.odrzavanjeImg3 = images.data.q[2].files_imageURL
@@ -44,7 +43,6 @@ export default {
                     fil_type: renoviranje
                 }
             })
-            console.log(images);
             this.renoviranjeImg = images.data.q[0].files_imageURL
         } catch (error) {
             console.log(error);

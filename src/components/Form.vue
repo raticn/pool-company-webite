@@ -12,9 +12,6 @@ export default {
     },
     methods: {
         submitForm() {
-            // Submit the form data to your server here
-            console.log(this.form);
-            // Clear the form
             this.form.name = '';
             this.form.email = '';
             this.form.message = '';

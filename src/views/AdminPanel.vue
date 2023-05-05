@@ -25,8 +25,6 @@ export default{
     },
     async onUpload($event) {
         this.akcijeTip = $event.target.id
-        console.log(this.akcijeSlika, this.akcijeText, this.akcijeTip);
-        console.log('Da li je ispunjen uslov za ulaz u if',this.akcijeTip == "akcije");
         try {
             let sid = this.getCookie("sid")
             let fd = new FormData()
@@ -44,7 +42,6 @@ export default{
                 fd.append('sid', sid)
             }
             let res = await axios.post('http://091v123.mars2.mars-hosting.com/API/admin/admin', fd)
-            console.log('akc', res);
             location.reload()
         } catch (error) {
             console.log(error);

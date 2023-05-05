@@ -30,8 +30,6 @@ export default{
             this.url = image.akcije_novosti_imageURL
             this.imgId = image.akc_id
             this.openPopup = !this.openPopup
-            console.log(this.openPopup);
-            console.log(this.imgId);
             document.querySelector(".top").style.display = "none"
             document.querySelector(".akcijeHeader").style.filter = "blur(20px)"
             document.querySelector(".akcNovWrapper").style.filter = "blur(20px)"
@@ -67,7 +65,6 @@ export default{
         try {
             let akcijeNovosti = await axios.get('http://091v123.mars2.mars-hosting.com/API/akcijeNovosti')
             this.akcNov = akcijeNovosti.data.q;
-            console.log(akcijeNovosti);
         } catch (error) {
             console.log(error);
         }

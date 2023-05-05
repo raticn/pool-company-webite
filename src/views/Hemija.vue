@@ -35,6 +35,8 @@ export default{
             let sekcije = document.querySelectorAll(".hemijskaSredstva")
             document.querySelector(".hemijaHeaderWrapper").style.filter = "blur(15px)"
             document.querySelector(".footer").style.filter = "blur(15px)"
+            document.querySelector(".nav1").style.filter = "blur(15px) brightness(95%)"
+            document.querySelector(".nav2").style.filter = "blur(15px) brightness(95%)"
             sekcije.forEach(sekcija => {
                 sekcija.style.filter = "blur(15px)"
             })
@@ -47,6 +49,8 @@ export default{
             let sekcije = document.querySelectorAll(".hemijskaSredstva")
             document.querySelector(".hemijaHeaderWrapper").style.filter = "none"
             document.querySelector(".footer").style.filter = "none"
+            document.querySelector(".nav1").style.filter = "none"
+            document.querySelector(".nav2").style.filter = "none"
             sekcije.forEach(sekcija => {
                 sekcija.style.filter = "none"
             })
@@ -76,7 +80,6 @@ export default{
                     fil_type: hemijaDinotec
                 }
             })
-            console.log(images);
             this.dinotecImages = images.data.q
             this.dinotecText = images.data.q[0].fil_text.split(".")
         } catch (error) {
@@ -87,7 +90,6 @@ export default{
             if (this.document.querySelector(".toTop")!=null){
             if (!this.openPopup) {
                 if (scrollHeight > 50) {
-                    // console.log(this.document.querySelector(".toTop"));
                 this.document.querySelector(".toTop").style.display = "block"
             }
             else {
@@ -147,16 +149,6 @@ export default{
                         </ul>
                     </div>
                 </div>
-                <!-- <div v-if="dinotec" class="hemijaPopupMain">
-                    <img class="hemijaImgPopup" :src="this.url" alt="slike">
-                    <div class="hemijaTextPopup">
-                        <ul>
-                            <li v-for="text in this.dinotecText">
-                                - {{ text }}
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
             <a  class="top" href="#top">
                 <FontAwesomeIcon class="toTop" icon="fa-solid fa-circle-arrow-up"></FontAwesomeIcon>

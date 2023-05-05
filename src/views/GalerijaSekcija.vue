@@ -27,12 +27,14 @@ export default {
             document.querySelector(".top").style.display = "none"
             document.querySelector(".galerijaWrapper").style.filter = "blur(15px) brightness(95%)"
             document.querySelector(".galerijaHeader").style.filter = "blur(15px) brightness(95%)"
+            document.querySelector(".nav1").style.filter = "blur(15px) brightness(95%)"
             document.querySelector(".nav2").style.filter = "blur(15px) brightness(95%)"
         },
         noBlur() {
             document.querySelector(".galerijaWrapper").style.filter = "none"
             document.querySelector(".galerijaHeader").style.filter = "none"
             document.querySelector(".top").style.display = "block"
+            document.querySelector(".nav1").style.filter = "none"
             document.querySelector(".nav2").style.filter = "none"
         },
         async priprema() {
@@ -45,7 +47,6 @@ export default {
                         fil_type: selectedImages
                     }
                 })
-                console.log(images);
                 this.galerijaSelection = images.data.q
             } catch (error) {
                 console.log(error);
@@ -59,7 +60,6 @@ export default {
             if (this.document.querySelector(".toTop")!=null){
             if (!this.openPopup) {
                 if (scrollHeight > 50) {
-                    // console.log(this.document.querySelector(".toTop"));
                 this.document.querySelector(".toTop").style.display = "block"
             }
             else {
@@ -180,9 +180,8 @@ export default {
 
 .xmark {
     position: absolute;
-    top: 79px;
-    right: 20px;
-    /* margin: 2em 0.5em; */
+    top: 40px;
+    right: 40px;
     align-self: flex-start;
     font-size: 3em;
     color: #000;
@@ -207,9 +206,6 @@ export default {
         width: 80%;
         margin:0 auto ;
     }
-    /* .xmark{
-        margin: 5em 0 0.5em 75%;
-    } */
 }
 
 @media (max-width: 480px) {
@@ -228,14 +224,11 @@ export default {
 }
 @media (orientation: landscape){
     .xmark{
-        /* top: 15px; */
-        right: 20px;
+        right: 40px;
         font-size: 2em;
     }    
     .galerijaPopup p{
         display: none;
     }
 }
-   
-
 </style>
