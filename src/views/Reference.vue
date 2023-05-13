@@ -24,13 +24,6 @@ export default {
         </div>
         <div class="referenca">
             <span class="godinaReference">
-                2002.
-            </span>
-            <p>Kopaonik - Hotel Ozon</p>
-            <p>Unutrašnji bazen: 5 x 3 x 1.5 m (skimerski)</p>
-        </div>
-        <div class="referenca">
-            <span class="godinaReference">
                 2003.
             </span>
             <p>Dedinje - Ekonomsko poslanstvo Narodne Republike Kine</p>
@@ -97,10 +90,10 @@ export default {
         </div>
         <div class="referenca">
             <span class="godinaReference">
-                2014.
+                2015.
             </span>
-            <p>Stara Pazova - Javna fontana</p>
-            <p>Fontana: 15 x 1.5 m</p>
+            <p>Avala hotel 1000 Ruža</p>
+            <p>Spoljašnji bazen: 15 x 15 x 1.5 m (prelivni)</p>
         </div>
         <div class="referenca">
             <span class="godinaReference">
@@ -109,8 +102,57 @@ export default {
             <p>Zlatibor Apartmani</p>
             <p>Spoljašnji bazen: 12 x 6 x 1.5 m (prelivni)</p>
         </div>
-        
-        
+        <div class="referenca">
+            <span class="godinaReference">
+                2016.
+            </span>
+            <p>Vrnjačka Banja - Projekat bazena Hotel Slavija</p>
+            <p>Kompleks bazena za plivanje</p>
+        </div>
+        <div class="referenca">
+            <span class="godinaReference">
+                2017.
+            </span>
+            <p>Kopaonik - Hotel Putnik </p>
+            <p>Unutrašnji bazen: 20 x 4 x 1.5 m (prelivni)</p>
+            <p>Unutrašnji bazen za malu decu</p>
+            <p>Jakuzzi kada za 6 osoba </p>
+        </div>
+        <div class="referenca">
+            <span class="godinaReference">
+                2018.
+            </span>
+            <p>Stara Pazova - Javna fontana</p>
+            <p>Fontana: 15 x 1.5 m</p>
+        </div>
+        <div class="referenca">
+            <span class="godinaReference">
+                2019.
+            </span>
+            <p>Crna Gora - Bečići projekat hotelskih bazena</p>
+            <p>Kompleks 6 bazena za plivanje</p>
+        </div>
+        <div class="referenca">
+            <span class="godinaReference">
+                2020.
+            </span>
+            <p>Pazova - Rezidencijalni otvoreni bazen</p>
+            <p>Spoljašnji bazen: 16 x 4.5 m</p>
+        </div>
+        <div class="referenca">
+            <span class="godinaReference">
+                2021.
+            </span>
+            <p>Beograd Diplomatsko naselje - Rezidencijalni otvoreni bazen</p>
+            <p>Spoljašnji bazen: 9 x 4.5 m</p>
+        </div>
+        <div class="referenca">
+            <span class="godinaReference">
+                2022.
+            </span>
+            <p>Valjevo - Rezidencijalni otvoreni bazen</p>
+            <p>Spoljašnji bazen: 12 x 5 m</p>
+        </div>
     </div>
     
 </div>
@@ -130,7 +172,7 @@ export default {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 310vh;
+    height: 130vh;
     width: 95vw;
     margin: 0 auto;
 }
@@ -143,10 +185,21 @@ export default {
 .referenca span{
     font-weight: bold;
 }
-
+@media (max-width: 1200px) {
+    .referenca{
+        width: 33%;
+        
+    }
+}
 @media (max-width: 1000px) {
     .referenceWrapper{
         font-size: 0.8em;
+    }
+}
+@media (max-width: 610px) {
+    .referenca{
+        width: 50%;
+        
     }
 }
 
