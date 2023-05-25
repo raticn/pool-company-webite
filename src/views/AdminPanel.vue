@@ -41,7 +41,7 @@ export default{
                 fd.append('tip', this.akcijeTip)
                 fd.append('sid', sid)
             }
-            let res = await axios.post('http://091v123.mars2.mars-hosting.com/API/admin/admin', fd)
+            let res = await axios.post('https://091v123.mars2.mars-hosting.com/API/admin/admin', fd)
             location.reload()
         } catch (error) {
             console.log(error);

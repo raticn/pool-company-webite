@@ -28,7 +28,7 @@ export default {
                 astralParam = "opremaJ"
             }
             try {
-                let astral = await axios.get('http://091v123.mars2.mars-hosting.com/API/oprema', {
+                let astral = await axios.get('https://091v123.mars2.mars-hosting.com/API/oprema', {
                     params: {
                         fil_type: astralParam
                     }
@@ -55,7 +55,7 @@ export default {
     async mounted() {
         let astralParam = "opremaP"
         try {
-            let astral = await axios.get('http://091v123.mars2.mars-hosting.com/API/oprema', {
+            let astral = await axios.get('https://091v123.mars2.mars-hosting.com/API/oprema', {
                 params: {
                     fil_type: astralParam
                 }

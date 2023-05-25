@@ -46,7 +46,7 @@ export default {
             this.naslov=selectedText;
 
             try {
-                let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
+                let images = await axios.get('https://091v123.mars2.mars-hosting.com/API/pictures', {
                     params: {
                         fil_type: selectedImages
                     }
@@ -67,7 +67,7 @@ export default {
                 fd.append('pictureGalery', this.selectedFile)
                 fd.append('fileType', selectedImages)
                 fd.append('sid', sid)
-                let res1 = await axios.post('http://091v123.mars2.mars-hosting.com/API/admin/adminSlike', fd)
+                let res1 = await axios.post('https://091v123.mars2.mars-hosting.com/API/admin/adminSlike', fd)
                 location.reload()
             } catch (error) {
                 console.log(error);
@@ -75,7 +75,7 @@ export default {
         },
         deleteImg(id) {
             let sid = this.getCookie("sid")
-            let brisanje = axios.delete('http://091v123.mars2.mars-hosting.com/API/admin/admin', {
+            let brisanje = axios.delete('https://091v123.mars2.mars-hosting.com/API/admin/admin', {
                 params: {
                     sid: sid,
                     deleteId: id

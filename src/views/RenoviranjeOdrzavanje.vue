@@ -25,7 +25,7 @@ export default {
         let odrzavanje = "odrzavanje"
         let renoviranje = "renoviranje"
         try {
-            let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
+            let images = await axios.get('https://091v123.mars2.mars-hosting.com/API/pictures', {
                 params: {
                     fil_type: odrzavanje
                 }
@@ -38,7 +38,7 @@ export default {
             console.log(error);
         }
         try {
-            let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/pictures', {
+            let images = await axios.get('https://091v123.mars2.mars-hosting.com/API/pictures', {
                 params: {
                     fil_type: renoviranje
                 }

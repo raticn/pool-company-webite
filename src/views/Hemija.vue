@@ -40,7 +40,7 @@ export default{
             sekcije.forEach(sekcija => {
                 sekcija.style.filter = "blur(15px)"
             })
-            let text = await axios.get('http://091v123.mars2.mars-hosting.com/API/hemija', {params: {
+            let text = await axios.get('https://091v123.mars2.mars-hosting.com/API/hemija', {params: {
                 fil_id: fil_id
             }})
             this.hemijaText = text.data.q[0].fil_text.split(".")
@@ -63,7 +63,7 @@ export default{
         let hemija = "hemija"
         let hemijaDinotec = "hemijaDinotec"
         try {
-            let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/oprema', {
+            let images = await axios.get('https://091v123.mars2.mars-hosting.com/API/oprema', {
                 params: {
                     fil_type: hemija,
                 }
@@ -74,7 +74,7 @@ export default{
             console.log(error);
         }
         try {
-            let images = await axios.get('http://091v123.mars2.mars-hosting.com/API/oprema', {
+            let images = await axios.get('https://091v123.mars2.mars-hosting.com/API/oprema', {
                 params: {
                     fil_param: this.fil_param,
                     fil_type: hemijaDinotec

@@ -45,7 +45,7 @@ export default{
         },
         brisanjeAkcije(id) {
             let sid = this.getCookie("sid")
-            let brisanje = axios.delete('http://091v123.mars2.mars-hosting.com/API/admin/adminAkcije', {params: {
+            let brisanje = axios.delete('https://091v123.mars2.mars-hosting.com/API/admin/adminAkcije', {params: {
                 sid: sid,
                 deleteId: id
             }})
@@ -63,7 +63,7 @@ export default{
     async mounted() {
         this.sid = this.getCookie("sid")
         try {
-            let akcijeNovosti = await axios.get('http://091v123.mars2.mars-hosting.com/API/akcijeNovosti')
+            let akcijeNovosti = await axios.get('https://091v123.mars2.mars-hosting.com/API/akcijeNovosti')
             this.akcNov = akcijeNovosti.data.q;
         } catch (error) {
             console.log(error);

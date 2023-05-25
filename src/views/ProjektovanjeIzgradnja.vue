@@ -16,7 +16,7 @@ export default{
     },
     async mounted() {
         try {
-            let izgradnja = await axios.get('http://091v123.mars2.mars-hosting.com/API/oprema', {
+            let izgradnja = await axios.get('https://091v123.mars2.mars-hosting.com/API/oprema', {
                 params: {
                     fil_type: "izgradnja"
                 }
